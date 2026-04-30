@@ -9,7 +9,7 @@ Aşağıdakı mətni Canva, PowerPoint və ya Google Slides vasitəsilə dizayn 
 *   **Aparıcı Mətn (Slayd):** abad.AI - Ailə Bizneslərinin Avtomatlaşdırılmış Breandinq Platforması
 *   **Alt Mətn:** ASAN AI Hub - Həlledici Təklif
 *   **Vizual:** İdarə panelinin tam geniş ekran şəkli (Dashboard-un ən yuxarı hissəsi nümayiş edilsin). Tünd və premium bir arxafon üzərində abad.AI loqosu.
-*   **Sizin Çıxışınız (Sözləriniz):** "Hər vaxtınız xeyir hörmətli münsiflər! Bu gün sizin qarşınıza sıradan bir alət ilə deyil, ucqar bir kənddə çalışan sənətkarın, fermerin emal məhsulunu qlobal və premium bazara çıxaran bir rəqəmsal katalizatorla - 'abad.AI' platforması ilə gəlmişik."
+*   **Sizin Çıxışınız (Sözləriniz):** "Hər vaxtınız xeyir hörmətli münsiflər, dəyərli qonaqlar! Bu gün sizin qarşınıza sadəcə növbəti bir proqram ideyası ilə deyil, real bir problemi kökündən həll edəcək vizionla gəlmişik. Təsəvvür edin ki, ucqar bir kənddə çalışan əl əməyi ustasının, zəhmətkeş fermerin emal məhsulunu tam qanuni, təhlükəsiz və premium şəkildə qlobal bazara çıxaran bir rəqəmsal katalizatorumuz var. Biz 'abad.AI' platforması ilə ASAN Xidmət və ABAD-ın innovasiya missiyasını yeni bir səviyyəyə, Süni İntellekt dövrünə daşıyırıq."
 
 ---
 
@@ -20,7 +20,7 @@ Aşağıdakı mətni Canva, PowerPoint və ya Google Slides vasitəsilə dizayn 
     *   Manual uyğunluq axtarışı: AQTA qida standartlarına uyğunluğun həftələrlə insan tərəfindən təkli-tək yoxlanılması.
     *   Vaxt İtkisi: 1 məhsulun dizayn+qanuni təsdiq mərhələsinin ortalama 14 gün çəkməsi.
 *   **Vizual:** Qarışıq qeydlər, kağız sənədlər və ya kədərli işçi illüstrasiyası.
-*   **Sizin Çıxışınız:** "Düşünün ki, uzaq dağ kəndində heyva mürəbbəsi istehsal edən bir xalanın məhsulunu ASAN-ın ABAD rəflərinə qoymaq üçün onu brendləşdirmək lazımdır. Hazırda dizayner, hüquqşünas və ekspertlər bu qablaşdırma mətninin standartlara cavab verdiyini yoxlamaq üçün günlərlə, bəzən 14 günə qədər vaxt sərf edir. Nəticədə insan resursu tükənir."
+*   **Sizin Çıxışınız:** "Gəlin mövcud reallığa baxaq. Uzaq dağ kəndində təbii heyva mürəbbəsi istehsal edən bir sahibkarın məhsulunu ASAN-ın ABAD rəflərinə qoymaq üçün çox ağır və bürokratik bir prosesdən - brendləşdirmə və hüquqi auditdən keçmək lazımdır. Hazırda dizaynerlər, hüquqşünaslar və qida ekspertləri etiketdəki xırda bir cümlənin AQTA və ya AZS standartlarına cavab verdiyini əl ilə yoxlamaq üçün günlərlə, bəzən 14 günə qədər vaxt sərf edirlər. İnsan faktoru səbəbindən həm xətalar qaçınılmaz olur, həm də dövlətin qiymətli mütəxəssis resursu sadə yoxlanışlara tükənir. Bizim həll etmək istədiyimiz köklü problem məhz budur."
 
 ---
 
@@ -31,7 +31,7 @@ Aşağıdakı mətni Canva, PowerPoint və ya Google Slides vasitəsilə dizayn 
     *   Eyni komanda sayı ilə **300% daha çox** biznesə xidmət (ROI).
     *   Bütün idarəetmə 1 interfeysdə.
 *   **Vizual:** Prototipimizdəki "İdarə Paneli" - xüsusilə ekranın ortasındakı böyük "ROI (300%)" blokunun screenshot-u.
-*   **Sizin Çıxışınız:** "Bizim həllimiz abad.AI Vahid Pəncərə Platformasıdır! Biz qlobal texnologiyanı milli dəyərlərlərlə birləşdirdik. Sistemin sayəsində 14 günlük əziyyət sadəcə 2 günə enir. Komandaya əlavə işçilər cəlb etmədən xidmət həcmini 300% artırırıq!"
+*   **Sizin Çıxışınız:** "Bu böyük problemin çox zərif və güclü bir həlli var: abad.AI Vahid Pəncərə Platforması! Biz ən müasir qlobal Süni İntellekt texnologiyalarını yerli, milli ehtiyaclarımızla mükəmməl şəkildə birləşdirdik. Süni intellektin analitik gücü sayəsində 14 gün çəkən o yorucu audit əziyyətini sadəcə 2 günə, hətta bəzən saatlara endiririk. Ən böyük nailiyyətimiz isə odur ki, ABAD komandasına heç bir əlavə işçi cəlb etmədən, mövcud heyətin məhsuldarlığını və xidmət həcmini 300% artırırıq. Ekspertlərimiz artıq sənəd oxumaqla yox, sadəcə yoxlanmış hazır nəticələri təsdiqləməklə məşğul olacaqlar."
 
 ---
 
@@ -42,7 +42,7 @@ Aşağıdakı mətni Canva, PowerPoint və ya Google Slides vasitəsilə dizayn 
     *   Avtokorrekt: Allergen, Kalori, Enerji dəyəri xətalarını anında tapıb sənədə istinad gətirir.
     *   Dövlət İstinadı: AR Qanunu (Maddə 17.2.1) və AZS ilə sinxronizasiya.
 *   **Vizual:** "Yerli Qanunvericilik RAG" tabımızın tam ekran şəkli (Solda qırmızı xəta işarəsi, sağda AI assistentin dövlət qanunundan sitat gətirmə bölməsi).
-*   **Sizin Çıxışınız:** "Münsiflərin AI barədə ilk sualı həmişə budur: 'Bəs yalan danışsa?' Xeyr, danışmır. Çünki platformamız 'RAG' texnologiyası ilə mərkəzi Qida Təhlükəsizliyi Qanunlarına bağlanıb. Ekranda gördüyünüz kimi, etiketdə allergen xəbərdarlığı olmadıqda, sistem dərhal qırmızı siqnal verir, AR qanununun 17.2.1-ci maddəsini sitat gətirir və üstəlik tək kliklə düzəlişi mətnə tətbiq edir."
+*   **Sizin Çıxışınız:** "Süni İntellekt dedikdə, yəqin ki, çoxunuzun ağlına ilk növbədə 'Bəs AI hallüsinasiya etsə, yalan uydursa nə olacaq?' sualı gəlir. Dövlət və qida təhlükəsizliyi sahəsində bu yolverilməzdir. Məhz buna görə biz adi ChatGPT yox, tam təcrid olunmuş 'RAG' (Məlumat-Axtarışla Dəstəklənən Generasiya) arxitekturası qurduq. Bizim model yalnız və yalnız yüklədiyimiz rəsmi Qida Təhlükəsizliyi qanunları və AZS standartları çərçivəsində 'düşünür'. Ekranda gördüyünüz prototipdə, sahibkar etiketə allergen xəbərdarlığı yazmağı unudub. Model internetdə gəzinmir, birbaşa Azərbaycan Respublikası Qanununun 17.2.1-ci maddəsini tapır, xətanı qırmızı siqnalla göstərir və ən əsası - tək bir kliklə hüquqi cəhətdən düzgün mətni etiketə avtomatik tətbiq edir. Bu, yüz faizlik riyazi dəqiqlik deməkdir."
 
 ---
 
@@ -53,7 +53,7 @@ Aşağıdakı mətni Canva, PowerPoint və ya Google Slides vasitəsilə dizayn 
     *   Məhsulun tərkibindən vizual rəng çıxarılması.
     *   Turistik ixrac üçün milli arxetiplərin (Buta, Şəbəkə) 1 kliklə qablaşdırmaya tətbiqi.
 *   **Vizual:** "Dizayn və Mədəniyyət" tabının şəkli (3 dənə şüşə banka - xüsusilə Qızılı Buta görünən versiyası).
-*   **Sizin Çıxışınız:** "Üstəlik, bizim məhsullar adi market məhsulu yox, Azərbaycan sənətkarlığının nümunəsidir. Sistemə quraşdırılmış Generativ AI dizayn studiyası ilə sadə mürəbbə etiketinin üzərinə anında daxili bazarlar üçün minimalist, xarici turistər üçün isə Azərbaycan milli "Buta" elementlərini tətbiq edə bilirik."
+*   **Sizin Çıxışınız:** "Amma bizim işimiz yalnız quru qanunlarla bitmir. ABAD məhsulları sıradan bir market malı deyil; onlar Azərbaycanın zəngin mədəniyyətinin, sənətkarlığının bir elçisidir. Biz bu ruhu yaşatmaq üçün sistemə xüsusi 'Mədəniyyət Könüllüsü' adlı Generativ AI dizayn modulu inteqrasiya etmişik. Bu model məhsulun vizualından onun aurasını oxuyur. Biz tək bir düymə ilə sadə bir heyva mürəbbəsi etiketini həm yerli bazar üçün müasir, minimalist formaya, həm də xarici turistlər üçün üzərində milli 'Buta' və 'Şəbəkə' naxışları olan premium vizuala çevirə bilirik. Üstəlik, AI modeli qablaşdırma üçün rəsmi tarixi mənbələrə əsaslanan cəlbedici hekayələr (storytelling) generasiya edir."
 
 ---
 
@@ -64,7 +64,7 @@ Aşağıdakı mətni Canva, PowerPoint və ya Google Slides vasitəsilə dizayn 
     *   Sürətli Təsdiq: **ASAN Finans API** vasitəsilə şirkətin (VÖEN) avtomatik yoxlanılması.
     *   Gələcək Körpü: AQTA və GS1 (Barkod) reyestrləri ilə Webhook əlaqəsi.
 *   **Vizual:** Dashboard-un küncündəki "ASAN Login ilə daxil olunub" profil bloku və "ASAN Finans API Aktivdir" indikatorunun yaxınlaşdırılmış şəkli.
-*   **Sizin Çıxışınız:** "ABAD bir ASAN təşəbbüsüdür. Ona görə də bu platforma xarici proqram yox, dövlət infrastrukturunun e-GovTech parçasıdır. İşçilər ASAN Loginlə daxil olur və daxil edilən VÖEN dərhal ASAN Finans xətti ilə vergi arayışları tərəfindən real vaxtda vizuallaşdırılır."
+*   **Sizin Çıxışınız:** "Təbii ki, ABAD kimi mühüm bir layihə havada qala bilməz. O, bir ASAN təşəbbüsüdür və bizim qurduğumuz platforma da yad bir proqram deyil, mövcud e-GovTech (Dövlət Texnologiyaları) ekosisteminin məntiqi və təbii davamıdır. Platformamız tamamilə API mərkəzli qurulub. Təhlükəsizlik üçün istifadəçilər sistemə mövcud 'ASAN Login' texnologiyası ilə daxil olurlar. Sahibkar VÖEN-i daxil etdiyi anda 'ASAN Finans' API-ləri işə düşür, bütün vergi və qeydiyyat məlumatları real vaxtda (real-time) ekrana çəkilir. Gələcəkdə bunu AQTA və Qlobal Barkod (GS1) reyestrləri ilə birbaşa əlaqələndirmək arxitekturamızda artıq nəzərdə tutulub."
 
 ---
 
@@ -87,7 +87,7 @@ Aşağıdakı mətni Canva, PowerPoint və ya Google Slides vasitəsilə dizayn 
     *   Həftə 3-8: AI modullarının və Dashboard-un yığılması.
     *   Həftə 9-12: Pilot - İlk 20 Ailə biznesi üzərində real istifadə və start!
 *   **Vizual:** Yol xəritəsi formatında ox simvolları (1 - 2 - 3 timeline qrafiki). Və "Məhsullar" tabındakı cədvəlin ekran görüntüsü (Gədəbəy Balı, Şəki Paxlavası olan siyahı).
-*   **Sizin Çıxışınız:** "Bütün bunları cəmi 12 həftəyə 0-dan aktiv pilot versiyaya çıxarmağa hazırıq."
+*   **Sizin Çıxışınız:** "Və ən vacib sual: 'Bunu reallaşdırmaq nə qədər vaxt alacaq?'. Biz sadəcə xəyallar satmırıq, əlimizdə dəqiq və təsdiqlənmiş Yol Xəritəmiz (RoadMap) var. Bütün bu mürəkkəb arxitekturanı sıfırdan qurub aktiv pilot versiyaya çıxarmaq üçün bizə cəmi 12 həftə (3 ay) lazımdır. İlk 2 həftədə qanunları və standartları rəqəmsallaşdırıb AI-ın beyninə (vektor bazasına) yükləyirik. Növbəti həftələrdə idarə panelini tam işlək vəziyyətə gətiririk. Və 12-ci həftənin sonunda biz artıq ilk 20 real ailə biznesinin məhsulunu bu platforma üzərindən canlı (Live) olaraq təsdiqləməyə tam hazırıq."
 
 ---
 
@@ -98,4 +98,4 @@ Aşağıdakı mətni Canva, PowerPoint və ya Google Slides vasitəsilə dizayn 
     *   AI uydurmasını bloklayan RAG alqoritmi isbat edilib.
     *   Gəlin ailə bizneslərini AI ilə rəqəmsallaşdıraq!
 *   **Vizual:** Böyük abad.AI Loqosu və Komandanın/Sizin adınız. Gözəl və təşəkkür mesajı.
-*   **Sizin Çıxışınız:** "Biz artıq texniki arxitekturanı və MVP-ni qurmuşuq. Bütün bunlar ASAN AI Hub platformasında ailə təsərrüfatlarının gəlirlərini bəlkə də 10 qat artıracaq yeganə 'Ailəni Dövlətə və Dünyaya' bağlayan startap təklifidir. Təşəkkür edirəm!"
+*   **Sizin Çıxışınız:** "Hörmətli münsiflər, yekun olaraq vurğulamaq istəyirəm ki, qarşınızda duran bu layihə sadəcə bir konsepsiya deyil. Biz artıq işlək arxitekturanı, sübut olunmuş RAG alqoritmini və gözünüzlə gördüyünüz bu interfeysi (MVP) qurmuşuq. Biz inanırıq ki, abad.AI platforması regionlardakı o zəhmətkeş ailə təsərrüfatlarının gəlirlərini və məhsuldarlığını 10 qat artıracaq qüdrətə malikdir. Bu layihə 'Ailəni Dövlətə, Dövləti isə Qlobal Dünyaya' bağlayan inqilabi bir startap təklifidir. Vaxt ayırdığınız və diqqətiniz üçün hər birinizə dərin təşəkkürümü bildirirəm!"
