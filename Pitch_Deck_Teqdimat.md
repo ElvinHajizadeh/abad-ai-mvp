@@ -68,14 +68,15 @@ Aşağıdakı mətni Canva, PowerPoint və ya Google Slides vasitəsilə dizayn 
 
 ---
 
-## SLAYD 7: Biznes Modeli və Maliyyə Faydası (Monetization)
-*   **Aparıcı Mətn:** Niyə Bu Layihəyə Sərmayə Yatırılmalıdır?
+## SLAYD 7: Biznes Modeli və Maliyyə Faydası (Riyazi Simulyasiya)
+*   **Aparıcı Mətn:** Rəqəmlərin Dili: Layihənin İqtisadi Səmərəliliyi (ROI)
 *   **Güllələr:**
-    *   **Cost-Saving (Xərclərə Qənaət):** Ekspertlərin 1 ayda etdiyi auditi AI 1 günə edir. Eyni büdcə ilə 3 qat daha çox məhsul təsdiqlənir.
-    *   **SaaS Potensialı:** Gələcəkdə yalnız ABAD üçün yox, KOBİA, AZPROMO və özəl audit şirkətləri üçün abunəlik (SaaS) modeli ilə lisenziya satışı.
-    *   **Sıfır API Xərci:** Lokal "On-Premise" (məs: Llama 3) modellərlə aylıq xarici API xərclərinin tamamilə sıfıra endirilməsi.
-*   **Vizual:** Qənaət olunan vaxtı və maliyyəni göstərən yüksələn yaşıl qrafik illüstrasiyası.
-*   **Sizin Çıxışınız:** "Biznes baxımından ən vacib sual: 'Bu bizə nə qazandıracaq?'. Bu layihə birbaşa 'Cost-saving' (Xərclərin azaldılması) modelidir. Ekspertlərin aylarla etdiyi işi sürətləndirərək dövlət büdcəsinin səmərəliliyini artırırıq. Xarici API-lərə pul xərcləmək əvəzinə, lokal 'On-Premise' modellərdən istifadə edəcəyik. Gələcəkdə isə bu platformanı SaaS kimi digər ixrac qurumlarına lisenziyalaşdıraraq böyük gəlir mənbəyinə çevirmək potensialımız var."
+    *   **Təxmini İlkin Xərc (CAPEX):** Lokal AI server (GPU) qurulumu və komanda xərci üçün təqribi birdəfəlik investisiya: **~15,000 - 20,000 AZN** (Mövcud Hökumət buludu "G-Cloud" resurslarından istifadə edilərsə bu xərc **tamamilə sıfıra** enir).
+    *   **Dövlət Vəsaitinə Qənaət (Cost-saving):** Bir neçə ekspertin aylarla apardığı auditi AI avtomatlaşdırdığı üçün, 1 ildə insan resursu və vaxt israfından minimum **30,000 - 40,000 AZN** qənaət edilir.
+    *   **Gələcək SaaS Gəliri (Monetizasiya):** Platforma yalnız ABAD üçün yox, KOBİA, AZPROMO və Özəl Qida Audit şirkətlərinə aylıq abunəlik (SaaS lisenziyası) kimi təqdim edilə bilər. Hədəf illik: **+50,000 AZN passiv gəlir**.
+    *   **Sıfır Aylıq API Xərci:** Xarici modellərə (OpenAI/ChatGPT) hər müraciətə görə pul ödəmək əvəzinə, daxili "On-Premise" modellərdən istifadə sayəsində aylıq əməliyyat xərcləri (OPEX) demək olar ki, sıfırdır.
+*   **Vizual:** Solda "Xərc: ~15K AZN", Sağda "Qənaət+Gəlir: 80K+ AZN" göstərən tərəzi illüstrasiyası və ya yüksələn qrafik.
+*   **Sizin Çıxışınız:** "Münsiflər adətən soruşur: 'Bu layihənin ROI-si, yəni investisiya gəlirliyi nə qədərdir?'. Tam riyazi hesablamalara baxaq: Layihə üçün ilkin xərc cəmi 15-20 min manat ətrafındadır, lakin biz bunu Hökumət Buludunda qursaq, xərc minimuma enəcək. Qarşılığında nə alırıq? Ekspertlərin manual auditə sərf etdiyi vaxtdan ildə 40 min manata yaxın qənaət (cost-saving) edirik. Üstəlik xarici API-lərə heç bir aylıq ödəniş vermirik (Sıfır OPEX). Ən gözəli isə odur ki, gələcəkdə bu platformanı KOBİA və ya özəl bazarlara SaaS olaraq satmaqla illik 50 min manatdan çox mənfəət qazanmaq potensialımız var. Yəni layihə qısa müddətə öz xərcini çıxarıb davamlı gəlirə çevrilir."
 
 ---
 
