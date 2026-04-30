@@ -68,18 +68,29 @@ Aşağıdakı mətni Canva, PowerPoint və ya Google Slides vasitəsilə dizayn 
 
 ---
 
-## SLAYD 7: 12 Həftəlik MVP Və Yol Xəritəsi (RoadMap)
+## SLAYD 7: Biznes Modeli və Maliyyə Faydası (Monetization)
+*   **Aparıcı Mətn:** Niyə Bu Layihəyə Sərmayə Yatırılmalıdır?
+*   **Güllələr:**
+    *   **Cost-Saving (Xərclərə Qənaət):** Ekspertlərin 1 ayda etdiyi auditi AI 1 günə edir. Eyni büdcə ilə 3 qat daha çox məhsul təsdiqlənir.
+    *   **SaaS Potensialı:** Gələcəkdə yalnız ABAD üçün yox, KOBİA, AZPROMO və özəl audit şirkətləri üçün abunəlik (SaaS) modeli ilə lisenziya satışı.
+    *   **Sıfır API Xərci:** Lokal "On-Premise" (məs: Llama 3) modellərlə aylıq xarici API xərclərinin tamamilə sıfıra endirilməsi.
+*   **Vizual:** Qənaət olunan vaxtı və maliyyəni göstərən yüksələn yaşıl qrafik illüstrasiyası.
+*   **Sizin Çıxışınız:** "Biznes baxımından ən vacib sual: 'Bu bizə nə qazandıracaq?'. Bu layihə birbaşa 'Cost-saving' (Xərclərin azaldılması) modelidir. Ekspertlərin aylarla etdiyi işi sürətləndirərək dövlət büdcəsinin səmərəliliyini artırırıq. Xarici API-lərə pul xərcləmək əvəzinə, lokal 'On-Premise' modellərdən istifadə edəcəyik. Gələcəkdə isə bu platformanı SaaS kimi digər ixrac qurumlarına lisenziyalaşdıraraq böyük gəlir mənbəyinə çevirmək potensialımız var."
+
+---
+
+## SLAYD 8: 12 Həftəlik MVP Və Yol Xəritəsi (RoadMap)
 *   **Aparıcı Mətn:** Layihənin Reallaşma Planı
 *   **Güllələr:**
     *   Həftə 1-2: Qanunvericilik bazasının vektorizasiyası (AZS, ГОСТ rəqəmsallaşdırılması)
     *   Həftə 3-8: AI modullarının və Dashboard-un yığılması.
     *   Həftə 9-12: Pilot - İlk 20 Ailə biznesi üzərində real istifadə və start!
 *   **Vizual:** Yol xəritəsi formatında ox simvolları (1 - 2 - 3 timeline qrafiki). Və "Məhsullar" tabındakı cədvəlin ekran görüntüsü (Gədəbəy Balı, Şəki Paxlavası olan siyahı).
-*   **Sizin Çıxışınız:** "Biz cəmi 12 həftəyə bu layihəni 0-dan aktiv pilot versiyaya çıxarmağa hazırıq."
+*   **Sizin Çıxışınız:** "Bütün bunları cəmi 12 həftəyə 0-dan aktiv pilot versiyaya çıxarmağa hazırıq."
 
 ---
 
-## SLAYD 8: Nəticə və Çağırış (Call to Action)
+## SLAYD 9: Nəticə və Çağırış (Call to Action)
 *   **Aparıcı Mətn:** Əsl Startap Hazırdır!
 *   **Güllələr:**
     *   100% İşlək Frontend Demonstrasiya mövcuddur.
