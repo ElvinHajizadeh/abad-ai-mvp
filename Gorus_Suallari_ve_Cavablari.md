@@ -93,5 +93,5 @@ Bu suallar sizin arxitekturanı həqiqətən özünüzün qurub-qurmadığınız
 **Sual 22: Dizayn hissəsindəki Mədəni Hekayə (Storytelling) bölməsində AI-ın "tarixi saxtalaşdırmayacağına" (Hallucination) necə zəmanət verirsiniz?**
 **Cavab:** Bu çox həssas və kritik məqamdır. Storytelling hissəsində də AI-ı sərbəst buraxmırıq! Biz sistemin axtarış bazasına yalnız Azərbaycanın rəsmi etnoqrafik lüğətlərini, Mədəniyyət Nazirliyinin məlumatlarını və dürüst tarixi mənbələri yükləyirik. Modeli belə məhdudlaşdırırıq: *"Sloqan yaradarkən YALNIZ sənə verilmiş tarixi sənədlərdəki faktlara əsaslan. Mədəni faktları və tarixləri əsla uydurma"*. Beləcə alınan hekayə həm kreativ, həm də rəsmi faktlara əsaslanan olur.
 
----
+
 **Tövsiyə:** Bu sənədi görüş zamanı ekranınızın bir tərəfində açıq saxlayın ki, sual veriləndə sürətlə göz gəzdirib əsas açar sözləri (RAG, Hallucination, On-Premise, Human-in-the-loop, Microservices, OCR, Multimodal, Semantic Chunking, Vector DB) xatırlaya biləsiniz. Özünüzə və qurduğunuz arxitekturaya güvənin. Uğurlar!
