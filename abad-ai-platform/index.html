@@ -32,20 +32,26 @@
             <span class="text-xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-brand-700 to-brand-500">abad.AI</span>
         </div>
         
-        <div class="p-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">Əsas Menyu</div>
+        <div class="p-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">İşçi Paneli</div>
         
         <nav class="flex-1 px-4 space-y-1" id="sidebar-nav">
-            <a href="#" data-target="dashboard" class="nav-btn flex items-center px-3 py-2.5 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+            <a href="#" data-target="dashboard" class="nav-btn flex items-center px-3 py-2.5 text-sm font-medium rounded-lg text-brand-700 bg-brand-50 transition-colors">
                 <i data-lucide="layout-dashboard" class="w-5 h-5 mr-3"></i> İdarə Paneli
             </a>
             <a href="#" data-target="products" class="nav-btn flex items-center px-3 py-2.5 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
-                <i data-lucide="package-search" class="w-5 h-5 mr-3"></i> Məhsullar
+                <i data-lucide="package-search" class="w-5 h-5 mr-3"></i> Məhsullar Reyestri
             </a>
-            <a href="#" data-target="compliance" class="nav-btn flex items-center px-3 py-2.5 text-sm font-medium rounded-lg text-brand-700 bg-brand-50 transition-colors">
-                <i data-lucide="shield-check" class="w-5 h-5 mr-3"></i> Yerli Qanunvericilik RAG
+            <a href="#" data-target="market" class="nav-btn flex items-center px-3 py-2.5 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                <i data-lucide="pie-chart" class="w-5 h-5 mr-3"></i> Bazar Araşdırması
+            </a>
+            <a href="#" data-target="compliance" class="nav-btn flex items-center px-3 py-2.5 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                <i data-lucide="file-edit" class="w-5 h-5 mr-3"></i> Etiket & Uyğunluq
+            </a>
+            <a href="#" data-target="kanban" class="nav-btn flex items-center px-3 py-2.5 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                <i data-lucide="kanban" class="w-5 h-5 mr-3"></i> İş Axını (Kanban)
             </a>
             <a href="#" data-target="design" class="nav-btn flex items-center px-3 py-2.5 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
-                <i data-lucide="palette" class="w-5 h-5 mr-3"></i> Dizayn & Mədəniyyət
+                <i data-lucide="palette" class="w-5 h-5 mr-3"></i> Vizual Dizayn
             </a>
         </nav>
         
@@ -59,7 +65,7 @@
                 </div>
                 <div class="ml-3 z-10">
                     <p class="text-sm font-bold text-gray-800">Elvin R.</p>
-                    <p class="text-[10px] uppercase font-bold tracking-wider text-blue-600 flex items-center"><span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-1.5"></span> ASAN Login ilə</p>
+                    <p class="text-[10px] uppercase font-bold tracking-wider text-blue-600 flex items-center"><span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-1.5"></span> ABAD Əməkdaşı</p>
                 </div>
             </div>
         </div>
@@ -70,11 +76,10 @@
             <div class="flex items-center w-96">
                 <div class="relative w-full">
                     <i data-lucide="search" class="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                    <input type="text" placeholder="Qanunvericilik və ya VÖEN cədvəli axtarışı..." class="w-full pl-9 pr-4 py-2 border border-gray-200 bg-gray-50 rounded-full text-sm focus:outline-none transition-all">
+                    <input type="text" placeholder="Qanunvericilik, VÖEN və ya Məhsul axtarışı..." class="w-full pl-9 pr-4 py-2 border border-gray-200 bg-gray-50 rounded-full text-sm focus:outline-none focus:border-brand-500 transition-all">
                 </div>
             </div>
             <div class="flex items-center space-x-4">
-                <!-- API Statuses -->
                 <div class="hidden md:flex items-center border-r border-gray-200 pr-4 mr-2 space-x-3">
                     <div class="flex flex-col items-end group cursor-help">
                         <span class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">ASAN Finans API</span>
@@ -89,17 +94,21 @@
             <div class="absolute top-0 right-0 -mr-32 -mt-32 w-96 h-96 bg-brand-50 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
 
             <!-- VIEW 1: DASHBOARD -->
-            <div id="view-dashboard" class="content-view hidden fade-in">
-                <!-- Old Dashboard code summary... -->
-                <h1 class="text-3xl font-bold mb-4">İdarə Paneli <span class="text-sm font-normal text-gray-500 ml-2">İcmal</span></h1>
+            <div id="view-dashboard" class="content-view block fade-in">
+                <div class="flex justify-between items-center mb-4">
+                    <h1 class="text-3xl font-bold">İdarə Paneli <span class="text-sm font-normal text-gray-500 ml-2">İş Yükü İcmalı</span></h1>
+                    <button id="downloadReportBtn" class="bg-white hover:bg-gray-50 text-gray-700 font-bold px-4 py-2 rounded-lg transition border border-gray-200 text-sm flex items-center shadow-sm">
+                        <i data-lucide="file-text" class="w-4 h-4 mr-2 text-brand-600"></i> Analitik PDF Hesabat
+                    </button>
+                </div>
                 <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 mb-6 flex flex-col md:flex-row items-start gap-4">
                     <div class="p-3 bg-brand-50 text-brand-600 rounded-lg shrink-0 border border-brand-100">
-                        <i data-lucide="trending-up" class="w-8 h-8"></i>
+                        <i data-lucide="cpu" class="w-8 h-8"></i>
                     </div>
                     <div>
-                        <h3 class="font-bold text-gray-900 text-lg mb-1">abad.AI Missiyası: Ailə Bizneslərinin Rəqəmsal Qanadı</h3>
-                        <p class="text-gray-600 text-sm">Bizim platforma sayəsində ucqar regiondakı kiçik biznesin (məs. Heyva mürəbbəsi istehsal edən xalanın) <b class="text-red-500">14 günlük manual</b> brendinq dövrü <b class="text-brand-600 border-b border-brand-500">cüzi müddətə - 2 günə</b> düşür.</p>
-                        <p class="text-gray-500 text-xs mt-2 border-t border-gray-100 pt-2"><i data-lucide="bar-chart" class="w-3 h-3 inline mr-1 text-gray-400"></i> Nəticədə mövcud komanda ilə müraciətləri qarşılama gücümüz <b>300% artır!</b> (RAG funksiyaları üçün isə soldakı tablara keçin)</p>
+                        <h3 class="font-bold text-gray-900 text-lg mb-1">abad.AI Missiyası: Avtomatlaşdırılmış Brendinq və Etiketləmə</h3>
+                        <p class="text-gray-600 text-sm">Bizim platforma sayəsində ABAD əməkdaşlarının manual olaraq həftələrlə apardığı <b class="text-brand-600">bazar araşdırması, dizayn seçimi və qanuni yoxlama</b> dövrü cəmi bir neçə dəqiqəyə düşür.</p>
+                        <p class="text-gray-500 text-xs mt-2 border-t border-gray-100 pt-2"><i data-lucide="bar-chart" class="w-3 h-3 inline mr-1 text-gray-400"></i> Nəticədə mövcud komanda ilə müraciətləri qarşılama və xidmət gücümüz <b>300% artır!</b></p>
                     </div>
                 </div>
 
@@ -110,19 +119,19 @@
                     </div>
                     <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex items-center">
                         <div class="w-12 h-12 rounded-full bg-green-50 text-green-600 flex items-center justify-center mr-4"><i data-lucide="check-circle-2" class="w-6 h-6"></i></div>
-                        <div><p class="text-xs text-gray-500 font-bold uppercase">Təsdiqlənmiş</p><h4 class="text-2xl font-bold text-gray-900">892</h4></div>
+                        <div><p class="text-xs text-gray-500 font-bold uppercase">Tam Uyğun (Hazır)</p><h4 class="text-2xl font-bold text-gray-900">892</h4></div>
                     </div>
                     <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex items-center">
                         <div class="w-12 h-12 rounded-full bg-yellow-50 text-yellow-600 flex items-center justify-center mr-4"><i data-lucide="clock" class="w-6 h-6"></i></div>
-                        <div><p class="text-xs text-gray-500 font-bold uppercase">Gözləmədə</p><h4 class="text-2xl font-bold text-gray-900">215</h4></div>
+                        <div><p class="text-xs text-gray-500 font-bold uppercase">Dizayn/Etiket Gözləyən</p><h4 class="text-2xl font-bold text-gray-900">215</h4></div>
                     </div>
                     <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex items-center">
                         <div class="w-12 h-12 rounded-full bg-red-50 text-red-600 flex items-center justify-center mr-4"><i data-lucide="alert-triangle" class="w-6 h-6"></i></div>
-                        <div><p class="text-xs text-gray-500 font-bold uppercase">Audit Xətası</p><h4 class="text-2xl font-bold text-gray-900">141</h4></div>
+                        <div><p class="text-xs text-gray-500 font-bold uppercase">Standart Xətası</p><h4 class="text-2xl font-bold text-gray-900">141</h4></div>
                     </div>
                 </div>
-                <div class="h-64 w-full bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                    <canvas id="marketChart"></canvas>
+                <div class="h-64 w-full bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex items-center justify-center">
+                     <canvas id="marketChart"></canvas>
                 </div>
             </div>
 
@@ -131,13 +140,18 @@
                 <div class="mb-6 flex justify-between items-end">
                     <div>
                         <h1 class="text-3xl font-bold text-gray-900 flex items-center">
-                            Ailə Biznesi Məhsulları <span class="ml-3 bg-brand-100 text-brand-700 py-1 px-3 rounded-full text-sm">24 Aktiv</span>
+                            Məhsullar Reyestri <span class="ml-3 bg-brand-100 text-brand-700 py-1 px-3 rounded-full text-sm">24 Aktiv</span>
                         </h1>
-                        <p class="text-gray-500 mt-2">ABAD tərəfindən dəstəklənən məhsulların brendinq statusları.</p>
+                        <p class="text-gray-500 mt-2">ABAD qeydiyyatından keçən məhsulların brendinq və uyğunluq statusları.</p>
                     </div>
-                    <button id="newProductBtn" class="bg-brand-600 hover:bg-brand-700 text-white font-medium px-5 py-2.5 rounded-lg transition shadow-sm flex items-center">
-                        <i data-lucide="plus" class="w-4 h-4 mr-2"></i> Yeni Məhsul Əlavə Et
-                    </button>
+                    <div class="flex space-x-3">
+                        <button id="openBulkScanBtn" class="bg-gray-900 hover:bg-black text-white font-bold px-5 py-2.5 rounded-lg transition shadow-md flex items-center transform hover:-translate-y-0.5">
+                            <i data-lucide="scan" class="w-4 h-4 mr-2"></i> Kütləvi Audit (Skan)
+                        </button>
+                        <button id="newProducerBtn" class="bg-brand-600 hover:bg-brand-700 text-white font-medium px-5 py-2.5 rounded-lg transition shadow-sm flex items-center">
+                            <i data-lucide="plus" class="w-4 h-4 mr-2"></i> Yeni İstehsalçı
+                        </button>
+                    </div>
                 </div>
                 
                 <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex-1 flex flex-col">
@@ -146,14 +160,14 @@
                             <thead class="bg-gray-50 sticky top-0 z-10 border-b border-gray-200">
                                 <tr>
                                     <th class="p-4 text-xs font-bold text-gray-500 uppercase tracking-wider">Məhsul ID / Adı</th>
-                                    <th class="p-4 text-xs font-bold text-gray-500 uppercase tracking-wider">İstehsalçı Reyestri</th>
+                                    <th class="p-4 text-xs font-bold text-gray-500 uppercase tracking-wider">İstehsalçı</th>
                                     <th class="p-4 text-xs font-bold text-gray-500 uppercase tracking-wider">Kateqoriya</th>
-                                    <th class="p-4 text-xs font-bold text-gray-500 uppercase tracking-wider">AQTA Uyğunluq Radarı</th>
-                                    <th class="p-4 text-right text-xs font-bold text-gray-500 uppercase tracking-wider">Brendinq Prosesi</th>
+                                    <th class="p-4 text-xs font-bold text-gray-500 uppercase tracking-wider">Hüquqi Status (AQTA)</th>
+                                    <th class="p-4 text-right text-xs font-bold text-gray-500 uppercase tracking-wider">Dizayn/Brendinq</th>
                                 </tr>
                             </thead>
-                            <tbody class="divide-y divide-gray-100 text-sm">
-                                <tr class="hover:bg-brand-50 transition cursor-pointer product-row">
+                            <tbody id="productsTableBody" class="divide-y divide-gray-100 text-sm">
+                                <tr class="hover:bg-brand-50 transition cursor-pointer">
                                     <td class="p-4">
                                         <div class="font-bold text-gray-900 border-l-2 border-brand-500 pl-2">Heyva Mürəbbəsi</div>
                                         <div class="text-gray-400 text-xs pl-2.5 mt-0.5">ID: ABD-0089</div>
@@ -163,65 +177,15 @@
                                     <td class="p-4"><span class="flex items-center text-red-600 font-medium"><i data-lucide="alert-circle" class="w-4 h-4 mr-1"></i> Xəta: Allergen tapıldı</span></td>
                                     <td class="p-4 text-right"><span class="bg-brand-100 text-brand-700 px-3 py-1.5 rounded-lg text-xs font-bold">100% Hazırdır</span></td>
                                 </tr>
-                                <tr class="hover:bg-brand-50 transition cursor-pointer product-row">
+                                <tr class="hover:bg-brand-50 transition cursor-pointer">
                                     <td class="p-4">
                                         <div class="font-bold text-gray-900 border-l-2 border-brand-500 pl-2">Quba Alması Cemi</div>
                                         <div class="text-gray-400 text-xs pl-2.5 mt-0.5">ID: ABD-0091</div>
                                     </td>
-                                    <td class="p-4"><div class="flex items-center"><div class="w-6 h-6 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center font-bold text-xs mr-2">V</div> Vəliyev MMC (Quba)</div></td>
+                                    <td class="p-4"><div class="flex items-center"><div class="w-6 h-6 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center font-bold text-xs mr-2">V</div> Vəliyev MMC</div></td>
                                     <td class="p-4"><span class="px-2 py-1 bg-orange-50 text-orange-700 rounded text-xs font-medium">Meyvə məhsulları</span></td>
                                     <td class="p-4"><span class="flex items-center text-green-600 font-medium"><i data-lucide="check-circle-2" class="w-4 h-4 mr-1"></i> Təsdiqləndi</span></td>
                                     <td class="p-4 text-right"><span class="bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg text-xs font-bold">AI Təhlilində (30%)</span></td>
-                                </tr>
-                                <tr class="hover:bg-brand-50 transition cursor-pointer product-row">
-                                    <td class="p-4">
-                                        <div class="font-bold text-gray-900 border-l-2 border-gray-300 pl-2">Zaqatala Qovrulmuş Fındığı</div>
-                                        <div class="text-gray-400 text-xs pl-2.5 mt-0.5">ID: ABD-0092</div>
-                                    </td>
-                                    <td class="p-4"><div class="flex items-center"><div class="w-6 h-6 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center font-bold text-xs mr-2">Q</div> Qafqaz Nuts (Zaqatala)</div></td>
-                                    <td class="p-4"><span class="px-2 py-1 bg-amber-50 text-amber-700 rounded text-xs font-medium">Çərəzlər, Quru Meyvə</span></td>
-                                    <td class="p-4"><span class="flex items-center text-yellow-600 font-medium"><i data-lucide="loader" class="w-4 h-4 mr-1 animate-spin"></i> RAG Təhlilində...</span></td>
-                                    <td class="p-4 text-right"><span class="bg-yellow-100 text-yellow-800 px-3 py-1.5 rounded-lg text-xs font-bold">Dizayn gözləyir</span></td>
-                                </tr>
-                                <tr class="hover:bg-brand-50 transition cursor-pointer product-row">
-                                    <td class="p-4">
-                                        <div class="font-bold text-gray-900 border-l-2 border-brand-500 pl-2">İsmayıllı Şərabı (Qırmızı)</div>
-                                        <div class="text-gray-400 text-xs pl-2.5 mt-0.5">ID: ABD-0045</div>
-                                    </td>
-                                    <td class="p-4"><div class="flex items-center"><div class="w-6 h-6 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-xs mr-2">İ</div> İvanovka Koop</div></td>
-                                    <td class="p-4"><span class="px-2 py-1 bg-purple-50 text-purple-700 rounded text-xs font-medium">Spirtli içkilər</span></td>
-                                    <td class="p-4"><span class="flex items-center text-green-600 font-medium"><i data-lucide="check-circle-2" class="w-4 h-4 mr-1"></i> Təsdiqləndi</span></td>
-                                    <td class="p-4 text-right"><span class="bg-brand-100 text-brand-700 px-3 py-1.5 rounded-lg text-xs font-bold">100% Hazırdır</span></td>
-                                </tr>
-                                <tr class="hover:bg-brand-50 transition cursor-pointer product-row">
-                                    <td class="p-4">
-                                        <div class="font-bold text-gray-900 border-l-2 border-gray-300 pl-2">Lənkəran Qara Çayı</div>
-                                        <div class="text-gray-400 text-xs pl-2.5 mt-0.5">ID: ABD-0012</div>
-                                    </td>
-                                    <td class="p-4"><div class="flex items-center"><div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs mr-2">C</div> Cənub Agro</div></td>
-                                    <td class="p-4"><span class="px-2 py-1 bg-green-50 text-green-700 rounded text-xs font-medium">Aromatik içkilər</span></td>
-                                    <td class="p-4"><span class="flex items-center text-gray-400 font-medium"><i data-lucide="clock" class="w-4 h-4 mr-1"></i> Gözləmədə</span></td>
-                                    <td class="p-4 text-right"><span class="bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg text-xs font-bold">Planlaşdırılır</span></td>
-                                </tr>
-                                <tr class="hover:bg-brand-50 transition cursor-pointer product-row">
-                                    <td class="p-4">
-                                        <div class="font-bold text-gray-900 border-l-2 border-gray-300 pl-2">Şəki Paxlavası</div>
-                                        <div class="text-gray-400 text-xs pl-2.5 mt-0.5">ID: ABD-0105</div>
-                                    </td>
-                                    <td class="p-4"><div class="flex items-center"><div class="w-6 h-6 rounded-full bg-orange-100 text-orange-700 flex items-center justify-center font-bold text-xs mr-2">M</div> Məşədi Ailəsi</div></td>
-                                    <td class="p-4"><span class="px-2 py-1 bg-red-50 text-red-700 rounded text-xs font-medium">Şirniyyat</span></td>
-                                    <td class="p-4"><span class="flex items-center text-red-600 font-medium"><i data-lucide="alert-circle" class="w-4 h-4 mr-1"></i> Xəta: Yararlılıq müddəti yoxdur</span></td>
-                                    <td class="p-4 text-right"><span class="bg-yellow-100 text-yellow-800 px-3 py-1.5 rounded-lg text-xs font-bold">Mətn redaktəsində</span></td>
-                                </tr>
-                                <tr class="hover:bg-brand-50 transition cursor-pointer product-row">
-                                    <td class="p-4">
-                                        <div class="font-bold text-gray-900 border-l-2 border-brand-500 pl-2">Gədəbəy Ekzotik Balı</div>
-                                        <div class="text-gray-400 text-xs pl-2.5 mt-0.5">ID: ABD-0033</div>
-                                    </td>
-                                    <td class="p-4"><div class="flex items-center"><div class="w-6 h-6 rounded-full bg-cyan-100 text-cyan-700 flex items-center justify-center font-bold text-xs mr-2">Ş</div> Şahdağ Arıçılıq</div></td>
-                                    <td class="p-4"><span class="px-2 py-1 bg-yellow-50 text-yellow-700 rounded text-xs font-medium">Təbii məhsullar</span></td>
-                                    <td class="p-4"><span class="flex items-center text-green-600 font-medium"><i data-lucide="check-circle-2" class="w-4 h-4 mr-1"></i> Təsdiqləndi</span></td>
-                                    <td class="p-4 text-right"><span class="bg-brand-100 text-brand-700 px-3 py-1.5 rounded-lg text-xs font-bold">100% Hazırdır</span></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -229,272 +193,568 @@
                 </div>
             </div>
 
-            <!-- VIEW 3: COMPLIANCE (THE NEW RAG FEATURE) -->
-            <div id="view-compliance" class="content-view hidden fade-in object-left h-auto min-h-full flex flex-col pb-10">
+            <!-- VIEW 3: MARKET RESEARCH (NEW) -->
+            <div id="view-market" class="content-view hidden fade-in h-auto flex flex-col pb-10">
                 <div class="mb-6">
-                    <div class="flex items-center space-x-2 text-brand-600 mb-2">
-                        <i data-lucide="shield-check" class="w-5 h-5"></i>
-                        <span class="text-[11px] font-bold uppercase tracking-widest bg-brand-50 border border-brand-100 px-2 py-1 rounded shadow-sm">RAG Motoru • Ağıllı Hüquqşünas Modeli</span>
-                    </div>
-                    <h1 class="text-3xl font-bold text-gray-900 tracking-tight">Qanunvericiliyə Uyğunluq Radarı</h1>
-                    <p class="text-gray-500 mt-2 max-w-2xl">Məhsulun etiketini avtomatik olaraq dövlət qida qanunvericiliyi və AZS standartları ilə üzləşdirin. Sistem yalnız hüquqi sənədlərə istinad edərək tam dəqiq (0 halüsinasiya) uyğunluğu təmin edir.</p>
+                    <h1 class="text-3xl font-bold text-gray-900 tracking-tight">AI Bazar Araşdırması və Rəng Nəzəriyyəsi</h1>
+                    <p class="text-gray-500 mt-2 max-w-2xl">Məhsul kateqoriyasına uyğun qlobal trendləri, rəqib etiketlərini və dizayn üçün "Color Theory" tövsiyələrini avtomatik əldə edin.</p>
                 </div>
 
-                <!-- RAG Interactive Studio -->
-                <div class="flex-1 bg-white rounded-2xl border border-gray-200 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden flex flex-col md:flex-row">
-                    
-                    <!-- Left: Document Context -->
-                    <div class="w-full md:w-5/12 bg-gray-50/50 p-6 flex flex-col border-r border-gray-200 overflow-y-auto min-h-[400px]">
-                        <h3 class="font-bold text-gray-800 mb-4 flex items-center text-sm border-b border-gray-200 pb-3">
-                            <i data-lucide="file-edit" class="w-4 h-4 mr-2 text-gray-500"></i> Etiket Mətni (Yoxlanılır)
-                        </h3>
+                <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6 mb-6">
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Məhsul Kateqoriyasını və ya Adını Daxil Edin</label>
+                    <div class="flex space-x-3">
+                        <input type="text" id="marketInput" value="Süd Məhsulları (Pendir, Qatıq)" class="flex-1 border border-gray-300 rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                        <button id="marketSearchBtn" class="bg-gray-900 hover:bg-black text-white px-6 py-2 rounded-lg text-sm font-bold shadow-md transition flex items-center">
+                            <i data-lucide="search" class="w-4 h-4 mr-2"></i> Trendləri Axtar
+                        </button>
+                    </div>
+                </div>
+
+                <div id="marketResults" class="grid grid-cols-1 md:grid-cols-2 gap-6 opacity-0 transition-opacity duration-500">
+                    <!-- Color Theory Card -->
+                    <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+                        <h3 class="font-bold text-gray-800 mb-4 flex items-center"><i data-lucide="palette" class="w-5 h-5 text-brand-600 mr-2"></i> Rəng Nəzəriyyəsi Tövsiyəsi (Color Theory)</h3>
+                        <p class="text-sm text-gray-600 mb-4">"Süd məhsulları" üçün aparılan qlobal vizual analizə əsasən ən çox güvən və təbiilik hissi yaradan palitralar:</p>
                         
-                        <div class="flex-1 bg-white border border-gray-200 rounded-xl p-5 shadow-sm space-y-5 relative">
-                            <div>
-                                <label class="text-[10px] uppercase font-bold tracking-wider text-gray-400 block mb-1">Məhsul Adı</label>
-                                <div class="text-sm font-medium text-gray-900 bg-gray-50 p-2 rounded border border-gray-100">Ucar Heyva Mürəbbəsi</div>
-                            </div>
-                            <!-- Error Highlighted field -->
-                            <div>
-                                <label class="text-[10px] uppercase font-bold tracking-wider text-gray-400 block mb-1">Daxil edilmiş Tərkib / Qida dəyəri</label>
-                                <div id="rag-target-text" class="text-sm text-gray-700 leading-relaxed p-3 bg-red-50/40 border border-red-200 rounded-lg relative cursor-pointer hover:bg-red-50 transition shadow-inner">
-                                    <div id="rag-alert-icon" class="absolute -right-2 -top-2 bg-red-500 text-white w-5 h-5 rounded-full flex items-center justify-center shadow-md animate-pulse"><i data-lucide="x" class="w-3 h-3"></i></div>
-                                    "Seçilmiş heyvalar, şəkər tozu, təmizlənmiş içməli su. Gözəl və təbii tərkibli ev mürəbbəsidir. Təbii şəraitdə ərsəyə gəlib. Tam gigiyenikdir. İstehsal tarixi: 15.04.2026. Yararlıq müddəti 2 ildir."
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="flex space-x-1">
+                                    <div class="w-8 h-8 rounded-l shadow-inner" style="background-color: #E0F2FE;"></div>
+                                    <div class="w-8 h-8 shadow-inner" style="background-color: #BAE6FD;"></div>
+                                    <div class="w-8 h-8 shadow-inner" style="background-color: #38BDF8;"></div>
+                                    <div class="w-8 h-8 rounded-r shadow-inner" style="background-color: #0284C7;"></div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold">Mavi / Bəyaz Ailəsi (68% İstifadə)</p>
+                                    <p class="text-xs text-gray-500">Təmizlik, saflıq və sərinlik hissi verir.</p>
                                 </div>
                             </div>
-                            <div>
-                                <label class="text-[10px] uppercase font-bold tracking-wider text-gray-400 block mb-1">Fiziki Parametrlər</label>
-                                <div class="text-sm text-gray-700 bg-gray-50 p-2 rounded border border-gray-100">Xalis çəki: 450 qr. Saxlanma şəraiti: +4°C - +20°C</div>
+                            <div class="flex items-center space-x-3">
+                                <div class="flex space-x-1">
+                                    <div class="w-8 h-8 rounded-l shadow-inner" style="background-color: #F0FDF4;"></div>
+                                    <div class="w-8 h-8 shadow-inner" style="background-color: #BBF7D0;"></div>
+                                    <div class="w-8 h-8 shadow-inner" style="background-color: #4ADE80;"></div>
+                                    <div class="w-8 h-8 rounded-r shadow-inner" style="background-color: #16A34A;"></div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold">Orqanik Yaşıl Ailəsi (22% İstifadə)</p>
+                                    <p class="text-xs text-gray-500">Təbiilik və sağlamlıq (Dietik/Eko) vurğusu üçündür.</p>
+                                </div>
                             </div>
+                        </div>
+                        
+                        <div class="mt-6 bg-brand-50 p-4 rounded-lg border border-brand-100">
+                            <span class="text-xs font-bold text-brand-800 uppercase block mb-1">AI Dizayn Məsləhəti</span>
+                            <p class="text-sm text-brand-700">Etiket üçün ağ/krem rəngli arxa fon üzərində tünd göy və ya zümrüd yaşılı naxışlar (şriftlər) istifadə etməniz tövsiyə olunur.</p>
                         </div>
                     </div>
 
-                    <!-- Right: AI RAG Assistant (Modern UI) -->
-                    <div class="w-full md:w-7/12 p-6 flex flex-col bg-white relative overflow-y-auto">
-                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-[0.03] pointer-events-none">
-                            <i data-lucide="bot" class="w-64 h-64"></i>
-                        </div>
+                    <!-- Market Insights Card -->
+                    <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+                        <h3 class="font-bold text-gray-800 mb-4 flex items-center"><i data-lucide="bar-chart-2" class="w-5 h-5 text-brand-600 mr-2"></i> Bazardakı Oxşar Məhsullar</h3>
+                        <p class="text-sm text-gray-600 mb-4">Rəqiblərin etiketlərində ən çox qeyd olunan iddialar (Claims):</p>
                         
-                        <h3 class="font-bold text-gray-800 mb-4 flex items-center text-sm border-b border-gray-200 pb-3 z-10">
-                            <i data-lucide="sparkles" class="w-4 h-4 mr-2 text-brand-500"></i> AI Qanunvericilik Köməkçisi (RAG)
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center text-sm text-gray-700 bg-gray-50 p-2 rounded border border-gray-100"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i> "100% Təbii İnek Südündən" (Bazarın 85%-i)</li>
+                            <li class="flex items-center text-sm text-gray-700 bg-gray-50 p-2 rounded border border-gray-100"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i> "Konservantsızdır" (Bazarın 70%-i)</li>
+                            <li class="flex items-center text-sm text-gray-700 bg-gray-50 p-2 rounded border border-gray-100"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i> "Yerli İstehsal" (Bazarın 40%-i)</li>
+                        </ul>
+                        
+                        <button onclick="document.querySelector('.nav-btn[data-target=\'compliance\']').click()" class="w-full bg-brand-100 hover:bg-brand-200 text-brand-800 font-bold py-2 rounded-lg transition text-sm flex items-center justify-center">
+                            Bu məlumatlarla Etiket Generasiya et <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW 4: COMPLIANCE & LABEL GEN -->
+            <div id="view-compliance" class="content-view hidden fade-in h-auto min-h-full flex flex-col pb-10">
+                <div class="mb-6">
+                    <div class="flex items-center space-x-2 text-brand-600 mb-2">
+                        <i data-lucide="bot" class="w-5 h-5"></i>
+                        <span class="text-[11px] font-bold uppercase tracking-widest bg-brand-50 border border-brand-100 px-2 py-1 rounded shadow-sm">AI Kopyrayter & Hüquqşünas Modeli</span>
+                    </div>
+                    <h1 class="text-3xl font-bold text-gray-900 tracking-tight">Etiket Generasiyası və Uyğunluq Yoxlanışı</h1>
+                    <p class="text-gray-500 mt-2 max-w-2xl">Qısa bir söz yazaraq tam etiket mətnini saniyələr içində orfoqrafik düzgün və qanunvericiliyə (AZS/ГОСТ) uyğun generasiya edin.</p>
+                </div>
+
+                <div class="flex-1 bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex flex-col md:flex-row">
+                    <!-- Left: Generation Input -->
+                    <div class="w-full md:w-5/12 bg-gray-50 p-6 flex flex-col border-r border-gray-200">
+                        <h3 class="font-bold text-gray-800 mb-4 flex items-center text-sm">
+                            <i data-lucide="pen-tool" class="w-4 h-4 mr-2 text-gray-500"></i> İlkin Məlumatlar (Sizdən)
+                        </h3>
+                        
+                        <div class="flex-1 bg-white border border-gray-200 rounded-xl p-5 shadow-sm space-y-5">
+                            <div>
+                                <label class="text-xs font-bold text-gray-700 block mb-2">Məhsul haqqında Qısa İfadə yazın:</label>
+                                <textarea id="aiPromptInput" rows="3" class="w-full border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:border-brand-500 focus:outline-none" placeholder="Məsələn: heyva mürəbbəsi, 450 qr, ucar rayonunda bişib."></textarea>
+                            </div>
+                            <button id="generateLabelBtn" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl transition shadow-md flex items-center justify-center">
+                                <i data-lucide="sparkles" class="w-5 h-5 mr-2"></i> AI ilə Mükəmməl Etiket Yarat
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right: AI Result & RAG Check -->
+                    <div class="w-full md:w-7/12 p-6 flex flex-col bg-white relative">
+                        <h3 class="font-bold text-gray-800 mb-4 flex items-center text-sm border-b border-gray-200 pb-3">
+                            <i data-lucide="shield-check" class="w-4 h-4 mr-2 text-brand-500"></i> Generasiya və Qanuni Skan (RAG)
                         </h3>
 
-                        <div class="flex-1 overflow-y-auto pr-2 space-y-6 custom-scrollbar z-10 pt-2 min-h-[400px]">
-                            
-                            <!-- Search query representation -->
-                            <div class="flex justify-end">
-                                <div class="bg-gray-100 text-gray-700 text-xs px-4 py-3 rounded-2xl rounded-tr-sm border border-gray-200 inline-flex shadow-sm font-medium">
-                                    Zəhmət olmasa, sol paneldəki mətni AR qida nizamnamələri ilə analiz et.
+                        <div id="aiResultArea" class="flex-1 hidden flex-col space-y-4">
+                            <!-- Generated Label -->
+                            <div class="bg-gray-50 border border-gray-200 rounded-xl p-5 relative">
+                                <span class="absolute -top-3 right-4 bg-gray-900 text-white text-[10px] font-bold px-2 py-1 rounded">Orfoqrafiya: Düzəldildi</span>
+                                <label class="text-[10px] uppercase font-bold text-gray-500 block mb-2">Hazırlanmış Tam Etiket Mətni:</label>
+                                <div class="text-sm text-gray-800 leading-relaxed font-medium" id="generatedText">
+                                    "Premium Heyva Mürəbbəsi. Xalis çəki: 450 qr. 
+                                    Tərkibi: Seçilmiş Ucar heyvaları, şəkər tozu, təmizlənmiş içməli su. 
+                                    Gözəl və təbii tərkibli ev mürəbbəsidir. Təbii şəraitdə ərsəyə gəlib. Tam gigiyenikdir. 
+                                    Saxlanma şəraiti: +4°C - +20°C."
                                 </div>
                             </div>
 
-                            <!-- Agent Thinking steps -->
-                            <div class="flex items-start">
-                                <div class="w-8 h-8 rounded-full bg-brand-50 flex items-center justify-center shrink-0 mr-3 shadow-sm border border-brand-100">
-                                    <i data-lucide="brain-circuit" class="w-4 h-4 text-brand-600"></i>
+                            <!-- RAG Alert -->
+                            <div class="bg-red-50 border border-red-200 rounded-xl shadow-sm overflow-hidden mt-4">
+                                <div class="bg-red-100 p-3 border-b border-red-200 flex items-center">
+                                    <i data-lucide="alert-triangle" class="w-4 h-4 text-red-600 mr-2"></i>
+                                    <h4 class="font-bold text-red-800 text-sm">AQTA Uyğunluq Radarı: Qanunvericilik Xətası!</h4>
                                 </div>
-                                <div class="bg-white border border-gray-100 rounded-2xl rounded-tl-sm p-4 text-sm text-gray-800 w-full shadow-sm">
-                                    <div class="flex items-center space-x-2 text-xs text-brand-600 font-bold mb-3 uppercase tracking-wide">
-                                        <i data-lucide="loader-2" class="w-3 h-3 animate-spin"></i>
-                                        <span>Dövlət Bazasında Axtarış Edilir...</span>
-                                    </div>
-                                    <ul class="space-y-2 text-xs text-gray-600 font-medium">
-                                        <li class="flex items-center"><i data-lucide="check" class="w-3 h-3 text-green-500 mr-2"></i> Mərkəzi Qanunvericilik Bazasına qoşuldu.</li>
-                                        <li class="flex items-center"><i data-lucide="check" class="w-3 h-3 text-green-500 mr-2"></i> <span class="bg-gray-50 border border-gray-200 px-1 py-0.5 rounded mx-1">AR Qida Təhlükəsizliyi Qanunu</span> üzrə skan olundu.</li>
-                                        <li class="flex items-center"><i data-lucide="check" class="w-3 h-3 text-green-500 mr-2"></i> <span class="bg-gray-50 border border-gray-200 px-1 py-0.5 rounded mx-1">ГОСТ 31712-2012 (Mürəbbələr)</span> standartı ilə üzləşdirildi.</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- Agent Result -->
-                            <div class="flex items-start">
-                                <div class="w-8 h-8 rounded-full bg-brand-600 flex items-center justify-center shrink-0 mr-3 shadow-md text-white">
-                                    <i data-lucide="file-check-2" class="w-4 h-4"></i>
-                                </div>
-                                <div id="rag-alert-box" class="bg-white border border-gray-200 rounded-2xl rounded-tl-sm shadow-md w-full overflow-hidden">
-                                    <div id="rag-alert-header" class="bg-red-50 p-4 border-b border-red-100 flex items-start">
-                                        <div id="rag-alert-icon-left" class="bg-red-100 p-1.5 rounded-full mr-3 shrink-0"><i data-lucide="alert-triangle" class="w-4 h-4 text-red-600"></i></div>
-                                        <div>
-                                            <h4 id="rag-alert-title" class="font-bold text-red-800 text-sm">Tapıntı: Qanunvericilik Xətası!</h4>
-                                            <p id="rag-alert-msg" class="text-xs text-red-600 mt-1">İstifadəçiyə qida məhsulunun enerji dəyəri və allergen xəbərdarlığı barədə məcburi məlumatlar verilməyib.</p>
-                                        </div>
+                                <div class="p-4">
+                                    <span class="text-[10px] uppercase font-bold text-gray-400 mb-2 flex items-center"><i data-lucide="scale" class="w-3 h-3 mr-1"></i> AR Qanunu, Maddə 17.2.1-dən Sitat</span>
+                                    <div class="bg-white border-l-4 border-red-400 p-3 text-xs text-gray-700 italic mb-4 shadow-sm">
+                                        "İstehlakçıya qida məhsulunun adı, <b class="text-red-600 bg-red-50 px-1 rounded not-italic">qida və enerji dəyəri, allergenlər</b>, miqdarı, istehsal tarixi barədə dolğun məlumat verilməsi məcburidir."
                                     </div>
                                     
-                                    <div class="p-5">
-                                        <span class="text-[10px] uppercase font-bold text-gray-400 mb-2 flex items-center"><i data-lucide="scale" class="w-3 h-3 mr-1"></i> Dövlət Qanunundan Sitat (AR Qanunu, Maddə 17.2.1)</span>
-                                        <div class="bg-gray-50 border-l-4 border-gray-300 p-3 text-xs text-gray-700 font-serif italic mb-5 rounded-r">
-                                            "İstehlakçıya qida məhsulunun adı, <b class="text-red-600 bg-red-100 px-1 rounded not-italic">qida və enerji dəyəri, allergenlər</b>, miqdarı, istehsal tarixi barədə dolğun məlumat verilməsi məcburidir."
-                                        </div>
-                                        
-                                        <div class="bg-brand-50/50 border border-brand-100 rounded-xl p-4 shadow-sm relative">
-                                            <div class="absolute -top-3 right-4 bg-brand-500 text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">Tövsiyə</div>
-                                            <span class="text-[10px] uppercase font-bold text-brand-700 mb-2 flex items-center"><i data-lucide="wand-2" class="w-3 h-3 mr-1"></i> AI Düzəliş Təklifi</span>
-                                            <p class="text-sm text-gray-800 leading-relaxed bg-white p-3 rounded border border-white shadow-sm mt-1">
-                                                "... Təmizlənmiş içməli su. <mark class="bg-yellow-100 px-1 py-0.5 rounded border border-yellow-200">Enerji dəyəri: 100qr üçün 245 kkal, Karbohidratlar: 62 qr.</mark> Gözəl və təbii... <br><mark class="bg-yellow-100 px-1 py-0.5 rounded border border-yellow-200 mt-2 inline-block">Allergen xəbərdarlığı: Qoz-fındıq izləri ola bilər.</mark>"
-                                            </p>
-                                        </div>
-                                    </div>
-                                    
-                                    <div id="rag-action-footer" class="bg-gray-50 p-3 border-t border-gray-200 flex justify-end space-x-3 items-center">
-                                        <button class="text-xs font-semibold text-gray-500 hover:text-gray-800 transition">İmtina et</button>
-                                        <button id="applyRagFixBtn" class="px-5 py-2.5 text-xs font-bold text-white bg-gray-900 hover:bg-black rounded-xl transition shadow-md flex items-center transform hover:-translate-y-0.5">
-                                            <i data-lucide="check" class="w-4 h-4 mr-1.5"></i> Düzəlişi Mətnə Tətbiq Et
+                                    <div class="bg-brand-50 border border-brand-100 rounded-lg p-3">
+                                        <span class="text-[10px] uppercase font-bold text-brand-700 mb-1 block">AI Düzəliş Təklifi:</span>
+                                        <p class="text-xs text-gray-800">
+                                            "Enerji dəyəri: 100qr üçün 245 kkal, Karbohidratlar: 62 qr. Allergen xəbərdarlığı: İstehsal xəttində qoz-fındıq izləri ola bilər."
+                                        </p>
+                                        <button id="applyFixAndQRBtn" class="mt-3 text-xs bg-brand-600 text-white font-bold px-4 py-2 rounded shadow-md hover:bg-brand-700 transition w-full flex justify-center items-center">
+                                            <i data-lucide="check-circle" class="w-4 h-4 mr-2"></i> Mətnə Tətbiq Et və Çap QR-ı Yarat
                                         </button>
                                     </div>
                                 </div>
                             </div>
                             
+                            <!-- QR Code Result (Hidden Initially) -->
+                            <div id="qrResultArea" class="hidden bg-white border-2 border-brand-500 rounded-xl shadow-lg p-6 flex-col items-center text-center mt-4 transform scale-95 transition-all duration-500">
+                                <span class="bg-brand-100 text-brand-800 text-xs font-bold px-3 py-1 rounded-full mb-4">Rəqəmsal Pasport Hazırdır</span>
+                                <div class="bg-white p-2 rounded-xl shadow-sm border border-gray-100 mb-3">
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=ABAD-APPROVED-LABEL-12345" alt="QR Code" class="w-32 h-32">
+                                </div>
+                                <h4 class="font-bold text-gray-900">GS1 / AQTA Standart QR</h4>
+                                <p class="text-xs text-gray-500 mt-1 max-w-xs mx-auto">Bu QR kod məhsulun qablaşdırması üçün tam hazırdır. Daxilində məhsulun tərkibi və rəsmi dövlət təsdiqi mövcuddur.</p>
+                                <div class="mt-4 flex space-x-2">
+                                    <button id="downloadQrBtn" class="bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs font-bold px-4 py-2 rounded transition"><i data-lucide="download" class="w-3 h-3 inline mr-1"></i> PNG Yüklə</button>
+                                    <button onclick="document.querySelector('.nav-btn[data-target=\'kanban\']').click()" class="bg-brand-50 text-brand-700 hover:bg-brand-100 border border-brand-200 text-xs font-bold px-4 py-2 rounded transition"><i data-lucide="arrow-right" class="w-3 h-3 inline mr-1"></i> Kanbana Keç</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Empty State -->
+                        <div id="aiEmptyState" class="flex-1 flex flex-col items-center justify-center text-center p-10 opacity-50">
+                            <i data-lucide="wand-2" class="w-16 h-16 text-gray-300 mb-4"></i>
+                            <p class="text-sm text-gray-500">Mətn generasiyası üçün sol paneldən göstəriş verin.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- VIEW 4: DESIGN STUDIO (MƏDƏNİ TƏKLİFLƏRİLƏ) -->
-            <div id="view-design" class="content-view hidden fade-in h-auto flex flex-col pb-20">
-                <div class="mb-8 p-6 bg-white rounded-xl border border-gray-200 shadow-sm relative overflow-hidden">
-                    <div class="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-brand-50 to-transparent pointer-events-none"></div>
-                    <h1 class="text-3xl font-bold text-gray-900 flex items-center relative z-10">
-                        Mədəniyyət Könüllüsü <i data-lucide="gem" class="w-6 h-6 ml-3 text-brand-600"></i>
-                    </h1>
-                    <p class="text-gray-500 mt-2 max-w-2xl relative z-10">ABAD-ın dəstəklədiyi hər bir məhsul yalnız qida deyil, Azərbaycanın zəngin mədəniyyətinin bir parçasıdır. Gəlin bu məhsulu yerli mirasımızla rəqəmsal olaraq bəzəyək.</p>
-                </div>
-                
-                <div class="mb-4">
-                    <h3 class="font-bold text-gray-700 pl-1">Azərbaycan Milli Naxışları ilə Avto-Dizayn Qalereyası</h3>
+            <!-- VIEW 4.5: KANBAN WORKFLOW (NEW) -->
+            <div id="view-kanban" class="content-view hidden fade-in h-full flex flex-col pb-6">
+                <div class="mb-6 flex justify-between items-end">
+                    <div>
+                        <h1 class="text-3xl font-bold text-gray-900 tracking-tight flex items-center">
+                            ABAD Təsdiq Zənciri <i data-lucide="lock" class="w-5 h-5 ml-3 text-gray-400"></i>
+                        </h1>
+                        <p class="text-gray-500 mt-2 max-w-2xl">Məhsulların şöbələr arası avtomatlaşdırılmış iş axını. Kartları tutub digər mərhələyə sürükləyə bilərsiniz.</p>
+                    </div>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="flex-1 flex space-x-4 overflow-x-auto pb-4 custom-scrollbar">
                     
-                    <!-- Azerbaijani Buta Version -->
-                    <div class="lg:col-span-1 bg-white rounded-2xl p-4 shadow-sm hover:shadow-xl transition-all duration-300 border border-brand-200 relative">
-                        <div class="absolute -top-3 left-4 bg-brand-600 text-white text-[10px] uppercase tracking-wide font-bold px-3 py-1 rounded-full z-10 shadow-sm border border-white">Milli Naxış: Buta</div>
-                        <div class="relative w-full h-80 rounded-xl overflow-hidden bg-gray-100 border border-gray-100 mb-4 shadow-inner">
-                            <img src="./jar3.png" class="w-full h-full object-cover transform hover:scale-110 transition duration-700 cursor-crosshair">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none"></div>
-                            <div class="absolute bottom-2 left-2 right-2 text-white text-xs text-center backdrop-blur bg-black/40 px-2 py-1.5 rounded p">
-                                Süni İntellektlə Qızılı Buta elementləri generasiya edilib
-                            </div>
+                    <!-- Column 1 -->
+                    <div class="flex-shrink-0 w-80 bg-gray-100/80 rounded-2xl p-4 flex flex-col border border-gray-200">
+                        <div class="flex justify-between items-center mb-4 px-1">
+                            <h3 class="font-bold text-gray-700 text-sm flex items-center"><span class="w-2 h-2 rounded-full bg-blue-500 mr-2"></span> 1. Dizayn Gözləyir</h3>
+                            <span class="bg-gray-200 text-gray-600 text-xs font-bold px-2 py-0.5 rounded-full">3</span>
                         </div>
-                        <div class="flex justify-between items-center px-1">
-                            <div>
-                                <h4 class="font-bold text-gray-800">Milli Üslub (#Buta)</h4>
-                                <p class="text-[11px] text-gray-500 mt-0.5">Xarici turizm bazarı üçün xüsusi</p>
+                        <div class="flex-1 space-y-3 overflow-y-auto min-h-[100px] kanban-zone" data-status="design">
+                            <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 cursor-grab hover:border-brand-300 transition" draggable="true">
+                                <div class="flex justify-between items-start mb-2">
+                                    <span class="text-[10px] font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded uppercase">Şirniyyat</span>
+                                    <span class="text-[10px] text-gray-400">#ABD-0105</span>
+                                </div>
+                                <h4 class="font-bold text-gray-800 text-sm mb-1">Şəki Paxlavası</h4>
+                                <p class="text-xs text-gray-500 mb-3">İstehsalçı: Məşədi Ailəsi</p>
+                                <div class="flex justify-between items-center mt-2 border-t border-gray-100 pt-2">
+                                    <img src="https://ui-avatars.com/api/?name=Ali+M&background=random&size=24" class="rounded-full w-6 h-6">
+                                    <span class="text-[10px] text-gray-400 flex items-center"><i data-lucide="clock" class="w-3 h-3 mr-1"></i> 2 gün əvvəl</span>
+                                </div>
                             </div>
-                            <button class="bg-gray-100 p-2 rounded-full hover:bg-brand-50 hover:text-brand-600 transition"><i data-lucide="download" class="w-4 h-4"></i></button>
                         </div>
                     </div>
 
-                    <!-- Traditional Dark Version -->
-                    <div class="lg:col-span-1 bg-white rounded-2xl p-4 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
-                        <div class="relative w-full h-80 rounded-xl overflow-hidden bg-gray-100 border border-gray-100 mb-4 shadow-inner">
-                            <img src="./jar.png" class="w-full h-full object-cover">
+                    <!-- Column 2 -->
+                    <div class="flex-shrink-0 w-80 bg-gray-100/80 rounded-2xl p-4 flex flex-col border border-gray-200">
+                        <div class="flex justify-between items-center mb-4 px-1">
+                            <h3 class="font-bold text-gray-700 text-sm flex items-center"><span class="w-2 h-2 rounded-full bg-yellow-500 mr-2"></span> 2. AI RAG Auditi</h3>
+                            <span class="bg-gray-200 text-gray-600 text-xs font-bold px-2 py-0.5 rounded-full">1</span>
                         </div>
-                        <div class="flex justify-between items-center px-1">
-                            <div>
-                                <h4 class="font-bold text-gray-800">Klassik Premium Lüks</h4>
-                                <p class="text-[11px] text-gray-500 mt-0.5">Gündəlik market istehlakı</p>
+                        <div class="flex-1 space-y-3 overflow-y-auto min-h-[100px] kanban-zone" data-status="audit">
+                            <div class="bg-white p-4 rounded-xl shadow-sm border border-yellow-300 cursor-grab hover:border-yellow-400 transition" draggable="true">
+                                <div class="flex justify-between items-start mb-2">
+                                    <span class="text-[10px] font-bold text-yellow-600 bg-yellow-50 px-2 py-0.5 rounded uppercase">Meyvə məhsulu</span>
+                                    <span class="text-[10px] text-gray-400">#ABD-0091</span>
+                                </div>
+                                <h4 class="font-bold text-gray-800 text-sm mb-1">Quba Alması Cemi</h4>
+                                <p class="text-xs text-gray-500 mb-3">Avtomatik yoxlanış davam edir...</p>
+                                <div class="w-full bg-gray-100 rounded-full h-1.5 mb-2">
+                                    <div class="bg-yellow-400 h-1.5 rounded-full" style="width: 45%"></div>
+                                </div>
+                                <div class="flex justify-between items-center mt-2 border-t border-gray-100 pt-2">
+                                    <div class="flex -space-x-2">
+                                        <div class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center border-2 border-white"><i data-lucide="bot" class="w-3 h-3 text-gray-500"></i></div>
+                                    </div>
+                                    <span class="text-[10px] text-gray-400 flex items-center"><i data-lucide="loader" class="w-3 h-3 mr-1 animate-spin"></i> İşləyir</span>
+                                </div>
                             </div>
-
-
-                            <button class="bg-gray-100 p-2 rounded-full hover:bg-brand-50 hover:text-brand-600 transition"><i data-lucide="download" class="w-4 h-4"></i></button>
                         </div>
                     </div>
 
-                    <!-- Organic Light Version -->
-                    <div class="lg:col-span-1 bg-white rounded-2xl p-4 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
-                        <div class="relative w-full h-80 rounded-xl overflow-hidden bg-gray-100 border border-gray-100 mb-4 shadow-inner">
-                            <img src="./jar2.png" class="w-full h-full object-cover">
+                    <!-- Column 3 -->
+                    <div class="flex-shrink-0 w-80 bg-gray-100/80 rounded-2xl p-4 flex flex-col border border-gray-200">
+                        <div class="flex justify-between items-center mb-4 px-1">
+                            <h3 class="font-bold text-gray-700 text-sm flex items-center"><span class="w-2 h-2 rounded-full bg-purple-500 mr-2"></span> 3. Rəhbər Təsdiqi</h3>
+                            <span class="bg-gray-200 text-gray-600 text-xs font-bold px-2 py-0.5 rounded-full">2</span>
                         </div>
-                        <div class="flex justify-between items-center px-1">
-                            <div>
-                                <h4 class="font-bold text-gray-800">Orqanik, Təmiz</h4>
-                                <p class="text-[11px] text-gray-500 mt-0.5">Eko-qablaşdırma layihəsi</p>
+                        <div class="flex-1 space-y-3 overflow-y-auto min-h-[100px] kanban-zone" data-status="approve">
+                            <div class="bg-white p-4 rounded-xl shadow-sm border border-purple-200 cursor-grab hover:border-purple-300 transition" draggable="true">
+                                <div class="flex justify-between items-start mb-2">
+                                    <span class="text-[10px] font-bold text-purple-600 bg-purple-50 px-2 py-0.5 rounded uppercase">Quru Qida</span>
+                                    <span class="text-[10px] text-gray-400">#ABD-0089</span>
+                                </div>
+                                <h4 class="font-bold text-gray-800 text-sm mb-1">Heyva Mürəbbəsi</h4>
+                                <p class="text-xs text-gray-500 mb-3">Bütün AI auditlərindən keçdi. İnsan təsdiqi gözləyir.</p>
+                                <div class="flex justify-between items-center mt-2 border-t border-gray-100 pt-2">
+                                    <img src="https://ui-avatars.com/api/?name=Director&background=random&size=24" class="rounded-full w-6 h-6">
+                                    <button id="approveKanbanBtn" class="bg-purple-100 hover:bg-purple-200 text-purple-700 text-[10px] font-bold px-3 py-1 rounded transition">Təsdiqlə</button>
+                                </div>
                             </div>
-                            <button class="bg-gray-100 p-2 rounded-full hover:bg-brand-50 hover:text-brand-600 transition"><i data-lucide="download" class="w-4 h-4"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Column 4 -->
+                    <div class="flex-shrink-0 w-80 bg-green-50/50 rounded-2xl p-4 flex flex-col border border-green-100">
+                        <div class="flex justify-between items-center mb-4 px-1">
+                            <h3 class="font-bold text-green-800 text-sm flex items-center"><span class="w-2 h-2 rounded-full bg-green-500 mr-2"></span> 4. Çapa Hazır (Tamamlandı)</h3>
+                            <span class="bg-green-200 text-green-800 text-xs font-bold px-2 py-0.5 rounded-full">1</span>
+                        </div>
+                        <div class="flex-1 space-y-3 overflow-y-auto min-h-[100px] kanban-zone" data-status="done">
+                            <div class="bg-white p-4 rounded-xl shadow-sm border border-green-200 cursor-grab hover:border-green-300 transition" draggable="true">
+                                <div class="flex justify-between items-start mb-2">
+                                    <span class="text-[10px] font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded uppercase">Spirtli İçki</span>
+                                    <span class="text-[10px] text-gray-400">#ABD-0045</span>
+                                </div>
+                                <h4 class="font-bold text-gray-800 text-sm mb-1">İsmayıllı Şərabı (Qırmızı)</h4>
+                                <p class="text-xs text-green-600 font-medium mb-3 flex items-center"><i data-lucide="check-circle-2" class="w-3 h-3 mr-1"></i> GS1 Barkodu Yaradıldı</p>
+                                <div class="flex justify-between items-center mt-2 border-t border-gray-100 pt-2">
+                                    <span class="text-[10px] text-gray-400">1 Saat əvvəl təsdiqləndi</span>
+                                    <i data-lucide="printer" class="w-4 h-4 text-gray-400"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                 </div>
+            </div>
 
-                <!-- AI Storytelling section moved here -->
-                <div class="mt-12 mb-4">
-                    <h3 class="font-bold text-gray-700 pl-1 flex items-center"><i data-lucide="feather" class="w-5 h-5 mr-2 text-brand-600"></i> AI Kopyraytinq və Mədəni Hekayə (Storytelling)</h3>
-                </div>
-
-                <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex flex-col md:flex-row mb-6">
-                    <div class="p-6 md:w-1/3 bg-gray-50 border-r border-gray-200 flex flex-col justify-center">
-                        <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-full flex items-center justify-center mb-4 shadow-sm border border-brand-200"><i data-lucide="quote" class="w-6 h-6"></i></div>
-                        <h4 class="font-bold text-gray-900 text-lg">Məhsulun Hekayəsi</h4>
-                        <p class="text-sm text-gray-500 mt-2 leading-relaxed">Müştərilər sadəcə məhsul yox, hekayə alırlar. AI, bölgənin tarixinə əsaslanaraq məhsulun arxa etiketi üçün mədəni mətnlər yaradır.</p>
-                        <button id="newStoryBtn" class="mt-6 bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 px-4 py-2 rounded-lg text-sm font-bold shadow-sm transition w-max flex items-center"><i id="newStoryIcon" data-lucide="refresh-cw" class="w-4 h-4 mr-2"></i> Yeni Versiya İstə</button>
-                    </div>
-                    <div class="p-6 md:w-2/3 space-y-4">
-                        <div class="p-4 border border-brand-100 bg-brand-50/50 rounded-xl relative group cursor-pointer hover:border-brand-300 transition shadow-inner">
-                            <div class="absolute right-4 top-4 opacity-0 group-hover:opacity-100 transition bg-white p-1 rounded shadow-sm"><i data-lucide="copy" class="w-4 h-4 text-brand-600"></i></div>
-                            <span class="text-[10px] font-bold uppercase tracking-widest text-brand-600 mb-2 block">Qısa Sloqan (Qablaşdırma üzü üçün)</span>
-                            <p id="sloganText" class="text-brand-900 font-serif text-xl italic">"Günəşin dadı, illərin yaddaşı."</p>
+            <!-- VIEW 5: DESIGN STUDIO -->
+            <div id="view-design" class="content-view hidden fade-in h-auto min-h-full flex flex-col pb-10">
+                <div class="mb-6 flex justify-between items-end">
+                    <div>
+                        <div class="flex items-center space-x-2 text-brand-600 mb-2">
+                            <i data-lucide="image" class="w-5 h-5"></i>
+                            <span class="text-[11px] font-bold uppercase tracking-widest bg-brand-50 border border-brand-100 px-2 py-1 rounded shadow-sm">Generativ AI & 3D Qablaşdırma</span>
                         </div>
-                        <div class="p-5 border border-gray-200 rounded-xl relative group cursor-pointer hover:border-gray-300 hover:bg-gray-50 transition">
-                            <div class="absolute right-4 top-4 opacity-0 group-hover:opacity-100 transition bg-white p-1 rounded shadow-sm border border-gray-100"><i data-lucide="copy" class="w-4 h-4 text-gray-500"></i></div>
-                            <span class="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-2 block">Arxa Etiket Hekayəsi (Xarici bazar üçün)</span>
-                            <p id="storyText" class="text-gray-700 text-sm leading-relaxed">"Azərbaycanın bərəkətli Ucar bağlarından toplanan bu heyvalar, yüzillik ailə ənənələrimizə uyğun, sevgi və səbirlə bişirilib. Hər qaşıqda dağların havasını, kənd süfrəsinin istiliyini hiss edəcəksiniz. Tam təbii, qoruyucusuz, nənələrimizin üsulu ilə."</p>
-                        </div>
+                        <h1 class="text-3xl font-bold text-gray-900 tracking-tight">Avtomatik Vizual Dizayn və Hekayə (Storytelling)</h1>
+                        <p class="text-gray-500 mt-2 max-w-2xl">Məhsulunuz üçün rəng nəzəriyyəsinə əsaslanan qablaşdırma dizaynını və marketinq hekayəsini AI vasitəsilə generasiya edin.</p>
                     </div>
                 </div>
 
+                <div class="flex-1 bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex flex-col md:flex-row">
+                    <!-- Left: Controls -->
+                    <div class="w-full md:w-4/12 bg-gray-50 p-6 flex flex-col border-r border-gray-200">
+                        <h3 class="font-bold text-gray-800 mb-4 flex items-center text-sm">
+                            <i data-lucide="sliders" class="w-4 h-4 mr-2 text-gray-500"></i> Dizayn Parametrləri
+                        </h3>
+                        
+                        <div class="space-y-4 flex-1">
+                            <div>
+                                <label class="text-xs font-bold text-gray-700 block mb-1">1. Qablaşdırma Növü</label>
+                                <select class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:border-brand-500 bg-white">
+                                    <option>Standart Şüşə Banka (300-500qr)</option>
+                                    <option>Premium Şüşə Butulka</option>
+                                    <option>Eko-Karton Qutu</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="text-xs font-bold text-gray-700 block mb-1">2. Rəng Nəzəriyyəsi (Palitra)</label>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <button class="border-2 border-brand-500 bg-brand-50 text-brand-700 font-bold text-xs py-2 rounded flex justify-center items-center">
+                                        <div class="w-3 h-3 bg-green-600 rounded-full mr-1.5"></div> Təbii / Eko
+                                    </button>
+                                    <button class="border border-gray-200 bg-white text-gray-600 hover:bg-gray-50 font-bold text-xs py-2 rounded flex justify-center items-center">
+                                        <div class="w-3 h-3 bg-blue-600 rounded-full mr-1.5"></div> Klassik Mavi
+                                    </button>
+                                    <button class="border border-gray-200 bg-white text-gray-600 hover:bg-gray-50 font-bold text-xs py-2 rounded flex justify-center items-center">
+                                        <div class="w-3 h-3 bg-amber-500 rounded-full mr-1.5"></div> Premium Qızılı
+                                    </button>
+                                    <button class="border border-gray-200 bg-white text-gray-600 hover:bg-gray-50 font-bold text-xs py-2 rounded flex justify-center items-center">
+                                        <div class="w-3 h-3 bg-red-600 rounded-full mr-1.5"></div> Dinamik
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="text-xs font-bold text-gray-700 block mb-1">3. Mədəni / Vizual Stil</label>
+                                <select class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:border-brand-500 bg-white">
+                                    <option>Milli Naxışlar (Buta, Şəbəkə)</option>
+                                    <option>Minimalist və Müasir</option>
+                                    <option>Vintaj / Klassik Resept</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="text-xs font-bold text-gray-700 block mb-1">4. Satış Hekayəsi (Storytelling)</label>
+                                <input type="text" value="Heyva mürəbbəsi, dağ kəndi təbiəti" class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:border-brand-500 bg-white">
+                                <p class="text-[10px] text-gray-400 mt-1">Arxa etiket üçün məhsulun hekayəsini yaradır.</p>
+                            </div>
+                        </div>
+
+                        <button id="generateDesignBtn" class="mt-6 w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl transition shadow-md flex items-center justify-center">
+                            <i data-lucide="palette" class="w-5 h-5 mr-2"></i> Konsept Dizaynı Yarat
+                        </button>
+                    </div>
+
+                    <!-- Right: Results -->
+                    <div class="w-full md:w-8/12 p-6 flex flex-col bg-white relative">
+                        <div id="designEmptyState" class="flex-1 flex flex-col items-center justify-center text-center p-10 opacity-50">
+                            <i data-lucide="layers" class="w-16 h-16 text-gray-300 mb-4"></i>
+                            <h4 class="font-bold text-gray-600">3D Vizualizasiya Modulu</h4>
+                            <p class="text-sm text-gray-500">Məhsulun qablaşdırma dizaynını görmək üçün sol tərəfdən məlumatları təsdiqləyin.</p>
+                        </div>
+
+                        <div id="designResultArea" class="hidden flex-1 flex-col h-full">
+                            <div class="flex justify-between items-center border-b border-gray-100 pb-3 mb-4">
+                                <h3 class="font-bold text-gray-800 flex items-center text-sm">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 mr-2 text-green-500"></i> AI Generasiyası Tamamlandı
+                                </h3>
+                                <div class="flex space-x-2">
+                                    <span class="bg-blue-50 text-blue-700 text-[10px] font-bold px-2 py-1 rounded uppercase">Milli Naxışlar</span>
+                                    <span class="bg-green-50 text-green-700 text-[10px] font-bold px-2 py-1 rounded uppercase">Eko Palitra</span>
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-col lg:flex-row gap-6 h-full">
+                                <!-- Mockup Image -->
+                                <div class="w-full lg:w-1/2 flex flex-col">
+                                    <div class="flex-1 bg-gray-100 rounded-xl border border-gray-200 shadow-inner overflow-hidden relative group">
+                                        <div class="absolute top-3 left-3 bg-white/90 backdrop-blur text-gray-800 text-[10px] font-bold px-2 py-1 rounded shadow-sm z-10 flex items-center">
+                                            <i data-lucide="box" class="w-3 h-3 mr-1 text-brand-600"></i> Ön Görünüş
+                                        </div>
+                                        <img src="./jar3.png" class="w-full h-full object-cover transform transition duration-700 group-hover:scale-105" alt="Mockup">
+                                    </div>
+                                    <button class="mt-3 text-xs text-gray-600 font-bold hover:text-brand-600 flex justify-center items-center"><i data-lucide="refresh-cw" class="w-3 h-3 mr-1"></i> Başqa Variasiya Yarat</button>
+                                </div>
+
+                                <!-- Storytelling & Actions -->
+                                <div class="w-full lg:w-1/2 flex flex-col space-y-4">
+                                    <div class="bg-brand-50 border border-brand-100 p-4 rounded-xl relative">
+                                        <i data-lucide="quote" class="w-6 h-6 text-brand-200 absolute top-4 right-4"></i>
+                                        <span class="text-[10px] uppercase font-bold text-brand-600 mb-2 block">Məhsulun Hekayəsi (Arxa Etiket Üçün)</span>
+                                        <p class="text-sm text-gray-800 italic leading-relaxed">
+                                            "Böyük Qafqazın uca dağlarının ətəyində, təmiz havada yetişən bu heyvalar əsrlərdən bəri nənələrimizin bişirdiyi xüsusi ocaq üsulu ilə ərsəyə gəlib. İçində nə süni rəngləndirici, nə də dadlandırıcı var - yalnız ana təbiətin saf ləzzəti. Hər bir qaşığı sizi o uzaq kəndlərin doğmalığına aparacaq."
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="bg-gray-50 border border-gray-200 p-4 rounded-xl flex-1 flex flex-col justify-center">
+                                        <h4 class="font-bold text-gray-800 text-sm mb-3">Sonrakı Addım</h4>
+                                        <div class="space-y-2">
+                                            <button id="sendToKanbanBtn" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-lg transition shadow-sm flex items-center justify-center text-sm">
+                                                <i data-lucide="kanban" class="w-4 h-4 mr-2"></i> Rəhbər Təsdiqinə Göndər (Kanban)
+                                            </button>
+                                            <button id="downloadMockupBtn" class="w-full bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 font-bold py-2.5 rounded-lg transition shadow-sm flex items-center justify-center text-sm">
+                                                <i data-lucide="download-cloud" class="w-4 h-4 mr-2"></i> Dizayn Fayllarını Yüklə (PDF, PNG)
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            </div>
-
-            <!-- Global Footer -->
-            <div class="mt-8 text-center text-xs text-gray-400 pb-4">
-                &copy; 2026 ABAD.AI Platforması - ASAN AI Hub Müsabiqəsi üçün Hazırlanmışdır
-            </div>
         </div>
     </main>
 
-    <!-- Add Product Modal -->
-    <div id="addProductModal" class="fixed inset-0 bg-gray-900/50 backdrop-blur-sm z-50 hidden flex items-center justify-center opacity-0 transition-opacity duration-300">
-        <div class="bg-white rounded-2xl shadow-xl w-full max-w-lg overflow-hidden transform scale-95 transition-transform duration-300 relative" id="addProductModalContent">
-            <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center bg-gray-50/50">
-                <h3 class="font-bold text-gray-900 flex items-center"><i data-lucide="plus-circle" class="w-5 h-5 text-brand-600 mr-2"></i> Yeni Məhsul Qeydiyyatı</h3>
-                <button id="closeModalBtn" class="text-gray-400 hover:text-gray-600 transition"><i data-lucide="x" class="w-5 h-5"></i></button>
+    <!-- Global Footer -->
+    <div class="fixed bottom-2 right-4 text-center text-xs text-gray-400 z-50">
+        &copy; 2026 ABAD.AI - ASAN AI Hub
+    </div>
+
+    <!-- Bulk Scan Modal -->
+    <div id="bulkScanModal" class="fixed inset-0 bg-gray-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl overflow-hidden transform scale-95 transition-transform duration-300 relative flex flex-col max-h-[90vh]">
+            <div class="px-6 py-5 border-b border-gray-100 flex justify-between items-center bg-gray-50/80">
+                <h3 class="font-bold text-gray-900 flex items-center text-lg"><i data-lucide="scan" class="w-5 h-5 text-brand-600 mr-2"></i> Kütləvi Qanunvericilik Auditi</h3>
+                <button id="closeBulkScanBtn" class="text-gray-400 hover:text-gray-600 transition bg-white p-1 rounded-md shadow-sm"><i data-lucide="x" class="w-5 h-5"></i></button>
             </div>
-            <div class="p-6 space-y-4">
-                <div>
-                    <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Məhsulun Adı</label>
-                    <input type="text" placeholder="Məsələn: Lənkəran Qara Çayı" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-gray-500 uppercase mb-1">İstehsalçı (VÖEN və ya Ad)</label>
-                    <div class="relative">
-                        <input type="text" placeholder="Axtarış..." class="w-full pl-9 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition">
-                        <i data-lucide="search" class="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+            
+            <div class="p-8 flex-1 overflow-y-auto">
+                <!-- Initial State -->
+                <div id="bulkScanInitial" class="text-center py-6">
+                    <div class="w-20 h-20 bg-brand-50 text-brand-600 rounded-full flex items-center justify-center mx-auto mb-5 shadow-inner">
+                        <i data-lucide="database" class="w-10 h-10"></i>
                     </div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-2">Bütün bazanı yenilənmiş qanunla skan et</h4>
+                    <p class="text-sm text-gray-500 max-w-md mx-auto mb-6">Məsələn, AQTA yeni bir qayda çıxardıqda (məs: "Bütün mürəbbələrdə şəkər növü yazılmalıdır"), sistemdəki 500+ məhsulu saniyələr içində yoxlaya bilərsiniz.</p>
+                    <button id="startBulkScanBtn" class="bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 px-8 rounded-xl shadow-md transition transform hover:-translate-y-1 flex items-center mx-auto">
+                        <i data-lucide="play" class="w-5 h-5 mr-2"></i> Skana Başla (500 Məhsul)
+                    </button>
                 </div>
-                <div>
-                    <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Etiket Şəkli (İxtiyari)</label>
-                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 flex flex-col items-center justify-center hover:bg-gray-50 hover:border-brand-400 transition cursor-pointer">
-                        <i data-lucide="upload-cloud" class="w-8 h-8 text-gray-400 mb-2"></i>
-                        <span class="text-sm font-medium text-gray-600">Şəkli bura sürükləyin və ya klikləyin</span>
+
+                <!-- Loading State -->
+                <div id="bulkScanLoading" class="hidden text-center py-10">
+                    <div class="relative w-24 h-24 mx-auto mb-6">
+                        <div class="absolute inset-0 border-4 border-gray-100 rounded-full"></div>
+                        <div class="absolute inset-0 border-4 border-brand-500 rounded-full border-t-transparent animate-spin"></div>
+                        <i data-lucide="search" class="w-8 h-8 text-brand-600 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-pulse"></i>
                     </div>
+                    <h4 class="text-lg font-bold text-gray-800 mb-2">RAG Motoru Axtarış Edir...</h4>
+                    <p class="text-sm text-brand-600 font-mono" id="scanProgressText">0 / 500 məhsul yoxlanıldı</p>
                 </div>
-            </div>
-            <div class="px-6 py-4 border-t border-gray-100 flex justify-end space-x-3 bg-gray-50">
-                <button id="cancelModalBtn" class="px-4 py-2 text-sm font-bold text-gray-600 hover:bg-gray-200 rounded-lg transition">İmtina</button>
-                <button id="saveProductBtn" class="px-4 py-2 text-sm font-bold text-white bg-brand-600 hover:bg-brand-700 rounded-lg shadow-md transition flex items-center">
-                    <i data-lucide="save" class="w-4 h-4 mr-2"></i> Yadda Saxla
-                </button>
+
+                <!-- Results State -->
+                <div id="bulkScanResults" class="hidden">
+                    <div class="bg-red-50 border border-red-200 rounded-xl p-5 mb-6 flex items-start shadow-sm">
+                        <div class="bg-white p-2 rounded-full shadow-sm mr-4 mt-1"><i data-lucide="alert-triangle" class="w-6 h-6 text-red-600"></i></div>
+                        <div>
+                            <h4 class="text-red-800 font-bold text-lg">Skan Tamamlandı: 24 Kritik Xəta Tapıldı!</h4>
+                            <p class="text-sm text-red-600 mt-1">AQTA-nın yeni <b>"Şəkər növünün göstərilməsi"</b> tələbinə əsasən 500 məhsuldan 24-nün etiketi təcili yenilənməlidir.</p>
+                        </div>
+                    </div>
+
+                    <h5 class="font-bold text-gray-700 text-sm mb-3 border-b border-gray-200 pb-2">Xətalı Məhsulların Siyahısı (İlk 3)</h5>
+                    <div class="space-y-3">
+                        <div class="bg-white border border-gray-200 rounded-lg p-4 flex justify-between items-center shadow-sm hover:border-red-300 transition">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded bg-red-100 text-red-700 flex items-center justify-center font-bold text-xs mr-3">ABD</div>
+                                <div>
+                                    <p class="font-bold text-sm text-gray-800">Quba Alması Cemi (ID: ABD-0091)</p>
+                                    <p class="text-[10px] text-gray-500">Mövcud: "Şəkər tozu" <span class="text-red-500 mx-1">→</span> Tələb: "Pancar şəkəri / Qamış şəkəri"</p>
+                                </div>
+                            </div>
+                            <button class="auto-fix-btn text-xs bg-gray-100 hover:bg-brand-50 hover:text-brand-700 font-semibold px-3 py-1.5 rounded transition">Avto-Düzəlt</button>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-lg p-4 flex justify-between items-center shadow-sm hover:border-red-300 transition">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded bg-red-100 text-red-700 flex items-center justify-center font-bold text-xs mr-3">ABD</div>
+                                <div>
+                                    <p class="font-bold text-sm text-gray-800">Zaqatala Qızılgül Mürəbbəsi (ID: ABD-0112)</p>
+                                    <p class="text-[10px] text-gray-500">Mövcud: "Şəkər" <span class="text-red-500 mx-1">→</span> Tələb: "Pancar şəkəri"</p>
+                                </div>
+                            </div>
+                            <button class="auto-fix-btn text-xs bg-gray-100 hover:bg-brand-50 hover:text-brand-700 font-semibold px-3 py-1.5 rounded transition">Avto-Düzəlt</button>
+                        </div>
+                    </div>
+                    
+                    <button id="bulkFixAllBtn" class="w-full mt-6 bg-gray-900 hover:bg-black text-white font-bold py-3 rounded-xl transition shadow-md flex items-center justify-center">
+                        <i data-lucide="wand-2" class="w-4 h-4 mr-2"></i> Bütün 24 məhsulu AI ilə avtomatik düzəlt
+                    </button>
+                </div>
             </div>
         </div>
     </div>
+    <!-- New Producer Modal (ASAN Finans) -->
+    <div id="newProducerModal" class="fixed inset-0 bg-gray-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden transform scale-95 transition-transform duration-300 relative flex flex-col">
+            <div class="px-6 py-5 border-b border-gray-100 flex justify-between items-center bg-gray-50/80">
+                <h3 class="font-bold text-gray-900 flex items-center text-lg">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/ASAN_xidm%C9%99t_logo.png" class="w-5 mr-2 opacity-80" alt="ASAN" onerror="this.style.display='none'">
+                    <i data-lucide="building-2" class="w-5 h-5 mr-2 text-brand-600"></i>
+                    Yeni İstehsalçı Qeydiyyatı
+                </h3>
+                <button id="closeProducerModalBtn" class="text-gray-400 hover:text-gray-600 transition bg-white p-1 rounded-md shadow-sm"><i data-lucide="x" class="w-5 h-5"></i></button>
+            </div>
+            
+            <div class="p-6">
+                <div class="mb-5 bg-blue-50 border border-blue-100 rounded-lg p-3 text-sm text-blue-800 flex items-start">
+                    <i data-lucide="info" class="w-5 h-5 text-blue-600 mr-2 shrink-0 mt-0.5"></i>
+                    <p>ASAN Finans API vasitəsilə sadəcə VÖEN daxil etməklə sahibkarın bütün rəsmi məlumatlarını avtomatik çəkə bilərsiniz.</p>
+                </div>
 
+                <div class="space-y-4">
+                    <div>
+                        <label class="text-xs font-bold text-gray-700 block mb-1">VÖEN nömrəsi</label>
+                        <div class="flex space-x-2">
+                            <input type="text" id="voenInput" placeholder="Məs: 1400234591" class="flex-1 border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:border-brand-500 outline-none">
+                            <button id="voenSearchBtn" class="bg-gray-900 hover:bg-black text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-sm transition flex items-center">
+                                <i data-lucide="search" class="w-4 h-4 mr-1"></i> Axtar
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Auto-filled form (Hidden initially) -->
+                    <div id="voenResultForm" class="hidden space-y-4 pt-4 border-t border-gray-100 mt-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="col-span-2">
+                                <label class="text-[10px] uppercase font-bold text-gray-400 block mb-1">Hüquqi Şəxsin Adı</label>
+                                <input type="text" value="ABAD Təbii Qida Məhsulları MMC" disabled class="w-full bg-gray-50 border border-gray-200 rounded-lg p-2.5 text-sm font-semibold text-gray-800">
+                            </div>
+                            <div class="col-span-2">
+                                <label class="text-[10px] uppercase font-bold text-gray-400 block mb-1">Hüquqi Ünvan</label>
+                                <input type="text" value="Bakı şəh, Nərimanov ray, Ə.Rəcəbli küç. 24" disabled class="w-full bg-gray-50 border border-gray-200 rounded-lg p-2.5 text-sm text-gray-700">
+                            </div>
+                            <div>
+                                <label class="text-[10px] uppercase font-bold text-gray-400 block mb-1">Məhsul Kateqoriyası (Təyin edin)</label>
+                                <select id="newCategorySelect" class="w-full bg-white border border-brand-300 rounded-lg p-2.5 text-sm font-bold text-gray-800 focus:ring-2 focus:border-brand-500 outline-none shadow-sm cursor-pointer">
+                                    <option value="Meyvə məhsulları (Cem, Mürəbbə)">Meyvə məhsulları (Cem, Mürəbbə)</option>
+                                    <option value="Quru qida (Çay, Ədviyyat)">Quru qida (Çay, Ədviyyat)</option>
+                                    <option value="Şirniyyat (Paxlava, Şəkərbura)">Şirniyyat (Paxlava, Şəkərbura)</option>
+                                    <option value="Spirtli İçkilər">Spirtli İçkilər</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-[10px] uppercase font-bold text-gray-400 block mb-1">Status</label>
+                                <div class="w-full bg-green-50 border border-green-200 rounded-lg p-2.5 text-sm font-bold text-green-700 flex items-center">
+                                    <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span> Aktiv Vergi Ödəyicisi
+                                </div>
+                            </div>
+                        </div>
+
+                        <button id="addProducerSubmitBtn" class="w-full mt-2 bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl transition shadow-md flex items-center justify-center">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 mr-2"></i> Reyestrə Əlavə Et
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Toast Notification -->
-    <div id="toastNotification" class="fixed bottom-4 right-4 bg-gray-900 text-white px-4 py-3 rounded-xl shadow-2xl flex items-center transform translate-y-20 opacity-0 transition-all duration-300 z-50 pointer-events-none">
-        <i data-lucide="check-circle-2" id="toastIcon" class="w-5 h-5 text-green-400 mr-3"></i>
+    <div id="toastNotification" class="fixed bottom-6 right-6 bg-white border-l-4 border-brand-500 rounded-lg shadow-2xl p-4 flex items-start max-w-sm transform translate-y-20 opacity-0 transition-all duration-300 z-50">
+        <div class="bg-brand-100 rounded-full p-1.5 mr-3 mt-0.5">
+            <i data-lucide="check" class="w-4 h-4 text-brand-600"></i>
+        </div>
         <div>
-            <p class="text-sm font-bold" id="toastTitle">Uğurlu Əməliyyat</p>
-            <p class="text-xs text-gray-300" id="toastMsg">Məlumatlar yadda saxlanıldı.</p>
+            <h4 id="toastTitle" class="font-bold text-gray-800 text-sm">Uğurlu</h4>
+            <p id="toastMsg" class="text-gray-500 text-xs mt-1">Əməliyyat icra edildi.</p>
         </div>
     </div>
 

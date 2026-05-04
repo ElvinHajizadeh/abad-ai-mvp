@@ -1,26 +1,26 @@
-// app.js - Logic for ABAD.AI Dashboard
+// app.js - Logic for ABAD.AI Dashboard (Internal Team Focus)
 
 // 1. Initialize Lucide Icons
 lucide.createIcons();
 
-// 2. Initialize Chart.js for Market Research
+// 2. Initialize Chart.js for Dashboard
 document.addEventListener('DOMContentLoaded', () => {
     const ctx = document.getElementById('marketChart');
     if(ctx) {
         const context2D = ctx.getContext('2d');
         const data = {
-            labels: ['Şəkər Nİsbəti (%)', 'Görünüş Dəyəri', 'Mürəkkəblik', 'Rəflərdə Seçim (%)', 'Təbii Algı'],
+            labels: ['Məhsuldarlıq Artımı (%)', 'Uyğunluq Xətası', 'Koordinasiya Sürəti', 'Avtomatlaşdırma Dəyəri', 'Brendinq Vaxtı'],
             datasets: [{
-                label: 'Bizim AI Dizaynı',
-                data: [65, 90, 45, 85, 92],
+                label: 'abad.AI ilə İdarəetmə',
+                data: [95, 5, 90, 85, 95],
                 backgroundColor: 'rgba(34, 197, 94, 0.2)',
                 borderColor: '#22c55e',
                 pointBackgroundColor: '#16a34a',
                 pointBorderColor: '#fff',
                 borderWidth: 2,
             }, {
-                label: 'Bazar Ortalaması',
-                data: [85, 60, 70, 50, 65],
+                label: 'Əvvəlki Manual Proses',
+                data: [40, 60, 30, 10, 20],
                 backgroundColor: 'rgba(156, 163, 175, 0.2)',
                 borderColor: '#9ca3af',
                 pointBackgroundColor: '#6b7280',
@@ -52,48 +52,22 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         let marketChart = new Chart(context2D, config);
-
-        const refreshBtn = document.getElementById('refreshChart');
-        if(refreshBtn) {
-            refreshBtn.addEventListener('click', (e) => {
-                const btn = e.currentTarget;
-                btn.classList.add('animate-spin');
-                setTimeout(() => btn.classList.remove('animate-spin'), 1000);
-                marketChart.data.datasets[0].data = marketChart.data.datasets[0].data.map(v => v + (Math.random() * 10 - 5));
-                marketChart.update();
-            });
-        }
     }
 
-    // 3. AI Text Typing Effect
-    const aiText = "Tərkibi: Seçilmiş heyva, təmizlənmiş içməli su, şəkər tozu, limon turşusu.\n\nTəbii heyva meyvələrindən Azərbaycanın ənənəvi resepti üzrə, müasir gigiyenik şəraitdə, heç bir süni qatqı və ya konservant əlavə edilmədən hazırlanmışdır. Sərin və quru yerdə, birbaşa günəş şüalarından uzaq saxlayın.\n\nEnerji dəyəri: 100q üçün 245 kkal.";
-    const typingContainer = document.getElementById('aiTypingText');
-    
-    if(typingContainer) {
-        let idx = 0;
-        const cursor = document.createElement('span');
-        cursor.className = 'cursor';
+    // 2.5 TOAST NOTIFICATION LOGIC
+    const toastNotification = document.getElementById('toastNotification');
+    const showToast = (title, message, isSuccess = true) => {
+        if(!toastNotification) return;
+        document.getElementById('toastTitle').innerText = title;
+        document.getElementById('toastMsg').innerText = message;
         
+        toastNotification.classList.remove('translate-y-20', 'opacity-0');
         setTimeout(() => {
-            const interval = setInterval(() => {
-                if (idx < aiText.length) {
-                    let char = aiText.charAt(idx);
-                    if(char === '\n') {
-                         typingContainer.innerHTML = aiText.substring(0, idx) + '<br/>';
-                    } else {
-                         typingContainer.innerHTML = aiText.substring(0, idx + 1).replace(/\n/g, '<br/>');
-                    }
-                    typingContainer.appendChild(cursor);
-                    idx++;
-                } else {
-                    clearInterval(interval);
-                    cursor.style.display = 'none'; // hide cursor after finish
-                }
-            }, 15);
-        }, 800);
-    }
+            toastNotification.classList.add('translate-y-20', 'opacity-0');
+        }, 3000);
+    };
 
-    // 4. TAB NAVIGATION LOGIC
+    // 3. TAB NAVIGATION LOGIC
     const navBtns = document.querySelectorAll('.nav-btn');
     const views = document.querySelectorAll('.content-view');
 
@@ -120,143 +94,405 @@ document.addEventListener('DOMContentLoaded', () => {
             if(targetView) {
                 targetView.classList.remove('hidden');
                 targetView.classList.add('block');
-                
-                // re-initialize lucide icons inside newly shown tab just in case
-                lucide.createIcons();
+                lucide.createIcons(); // re-init icons
             }
         });
     });
 
-    // 5. MODAL LOGIC (Yeni Məhsul Əlavə Et)
-    const newProductBtn = document.getElementById('newProductBtn');
-    const addProductModal = document.getElementById('addProductModal');
-    const closeModalBtn = document.getElementById('closeModalBtn');
-    const cancelModalBtn = document.getElementById('cancelModalBtn');
-    const saveProductBtn = document.getElementById('saveProductBtn');
-    const toastNotification = document.getElementById('toastNotification');
+    // 4. MARKET RESEARCH LOGIC (Bazar Araşdırması)
+    const marketSearchBtn = document.getElementById('marketSearchBtn');
+    const marketResults = document.getElementById('marketResults');
+    const marketInput = document.getElementById('marketInput');
 
-    const openModal = () => {
-        addProductModal.classList.remove('hidden');
-        setTimeout(() => addProductModal.classList.remove('opacity-0'), 10);
-    };
-
-    const closeModal = () => {
-        addProductModal.classList.add('opacity-0');
-        setTimeout(() => addProductModal.classList.add('hidden'), 300);
-    };
-
-    const showToast = (title, message, isSuccess = true) => {
-        document.getElementById('toastTitle').innerText = title;
-        document.getElementById('toastMsg').innerText = message;
-        
-        toastNotification.classList.remove('translate-y-20', 'opacity-0');
-        setTimeout(() => {
-            toastNotification.classList.add('translate-y-20', 'opacity-0');
-        }, 3000);
-    };
-
-    if(newProductBtn) newProductBtn.addEventListener('click', openModal);
-    if(closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
-    if(cancelModalBtn) cancelModalBtn.addEventListener('click', closeModal);
-    if(saveProductBtn) {
-        saveProductBtn.addEventListener('click', () => {
-            closeModal();
-            showToast("Məhsul Qeydiyyatı", "Yeni məhsul uğurla sistemə əlavə edildi.");
-        });
-    }
-
-    // 6. TABLE ROW CLICK (RAG tabına keçid)
-    const productRows = document.querySelectorAll('.product-row');
-    productRows.forEach(row => {
-        row.addEventListener('click', () => {
-            // Sətrə klikləyəndə RAG (Compliance) tabına keç
-            const complianceBtn = document.querySelector('[data-target="compliance"]');
-            if(complianceBtn) complianceBtn.click();
-            showToast("Məhsul Seçildi", "Audit üçün məlumatlar RAG motoruna yükləndi.");
-        });
-    });
-
-    // 7. RAG FIX LOGIC (Düzəlişi Mətnə Tətbiq Et)
-    const applyRagFixBtn = document.getElementById('applyRagFixBtn');
-    if(applyRagFixBtn) {
-        applyRagFixBtn.addEventListener('click', () => {
-            // Update left panel text
-            const targetText = document.getElementById('rag-target-text');
-            const alertIcon = document.getElementById('rag-alert-icon');
+    if(marketSearchBtn && marketResults) {
+        marketSearchBtn.addEventListener('click', () => {
+            const btnIcon = marketSearchBtn.querySelector('svg') || marketSearchBtn.querySelector('i');
+            const originalIcon = btnIcon ? btnIcon.getAttribute('data-lucide') : 'search';
             
-            if(targetText) {
-                targetText.classList.remove('bg-red-50/40', 'border-red-200', 'hover:bg-red-50');
-                targetText.classList.add('bg-green-50/40', 'border-green-200', 'hover:bg-green-50');
-                targetText.innerHTML = `
-                    <div class="absolute -right-2 -top-2 bg-green-500 text-white w-5 h-5 rounded-full flex items-center justify-center shadow-md"><i data-lucide="check" class="w-3 h-3"></i></div>
-                    "Seçilmiş heyvalar, şəkər tozu, təmizlənmiş içməli su. Gözəl və təbii tərkibli ev mürəbbəsidir. Enerji dəyəri: 100qr üçün 245 kkal, Karbohidratlar: 62 qr. Təbii şəraitdə ərsəyə gəlib. Tam gigiyenikdir. İstehsal tarixi: 15.04.2026. Yararlıq müddəti 2 ildir. Allergen xəbərdarlığı: Qoz-fındıq izləri ola bilər."
-                `;
+            // Loading state
+            if(btnIcon) {
+                btnIcon.setAttribute('data-lucide', 'loader-2');
+                btnIcon.classList.add('animate-spin');
             }
-
-            // Update Right Panel Alert Box
-            const alertBox = document.getElementById('rag-alert-box');
-            const alertHeader = document.getElementById('rag-alert-header');
-            const alertIconLeft = document.getElementById('rag-alert-icon-left');
-            const alertTitle = document.getElementById('rag-alert-title');
-            const alertMsg = document.getElementById('rag-alert-msg');
-            const actionFooter = document.getElementById('rag-action-footer');
-
-            if(alertHeader) {
-                alertHeader.classList.remove('bg-red-50', 'border-red-100');
-                alertHeader.classList.add('bg-green-50', 'border-green-100');
-                
-                alertIconLeft.classList.remove('bg-red-100');
-                alertIconLeft.classList.add('bg-green-100');
-                alertIconLeft.innerHTML = '<i data-lucide="check-circle-2" class="w-4 h-4 text-green-600"></i>';
-
-                alertTitle.classList.remove('text-red-800');
-                alertTitle.classList.add('text-green-800');
-                alertTitle.innerText = 'Sistem Yeniləndi: Uğurlu Audit';
-
-                alertMsg.classList.remove('text-red-600');
-                alertMsg.classList.add('text-green-600');
-                alertMsg.innerText = 'Bütün dövlət standartlarına (AQTA, AZS) uyğunluq təmin edildi və yadda saxlanıldı.';
-            }
-
-            if(actionFooter) {
-                actionFooter.style.display = 'none';
-            }
-
-            showToast("Təsdiqləndi", "Düzəlişlər qəbul edildi və mətn yeniləndi.", true);
+            marketSearchBtn.classList.add('opacity-75', 'cursor-not-allowed');
             lucide.createIcons();
-        });
-    }
-
-    // 8. AI STORYTELLING (Yeni Versiya İstə)
-    const newStoryBtn = document.getElementById('newStoryBtn');
-    if (newStoryBtn) {
-        newStoryBtn.addEventListener('click', () => {
-            const icon = document.getElementById('newStoryIcon');
-            const sloganText = document.getElementById('sloganText');
-            const storyText = document.getElementById('storyText');
-
-            // Simulating loading
-            icon.classList.add('animate-spin');
-            newStoryBtn.classList.add('opacity-70', 'cursor-not-allowed');
 
             setTimeout(() => {
-                // Stop loading
-                icon.classList.remove('animate-spin');
-                newStoryBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+                // Restore state
+                const updatedIcon = marketSearchBtn.querySelector('svg') || marketSearchBtn.querySelector('i');
+                if(updatedIcon) {
+                    updatedIcon.setAttribute('data-lucide', originalIcon);
+                    updatedIcon.classList.remove('animate-spin');
+                }
+                marketSearchBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+                
+                // Show results
+                marketResults.classList.remove('opacity-0');
+                lucide.createIcons();
+            }, 1200);
+        });
+    }
 
-                // Update text
-                if (sloganText) {
-                    sloganText.innerText = '"Dağların bərəkəti, nənələrin irsi."';
-                    sloganText.classList.remove('text-brand-900');
-                    sloganText.classList.add('text-green-800');
+    // 5. LABEL GENERATION LOGIC (Etiket və Uyğunluq)
+    const generateLabelBtn = document.getElementById('generateLabelBtn');
+    const aiResultArea = document.getElementById('aiResultArea');
+    const aiEmptyState = document.getElementById('aiEmptyState');
+    const aiPromptInput = document.getElementById('aiPromptInput');
+    const generatedText = document.getElementById('generatedText');
+
+    if(generateLabelBtn && aiResultArea) {
+        generateLabelBtn.addEventListener('click', () => {
+            if(!aiPromptInput.value.trim()) {
+                aiPromptInput.focus();
+                return;
+            }
+
+            const btnIcon = generateLabelBtn.querySelector('svg') || generateLabelBtn.querySelector('i');
+            
+            // Loading state
+            if(btnIcon) {
+                btnIcon.setAttribute('data-lucide', 'loader-2');
+                btnIcon.classList.add('animate-spin');
+            }
+            generateLabelBtn.classList.add('opacity-75', 'cursor-not-allowed');
+            lucide.createIcons();
+
+            setTimeout(() => {
+                // Restore state
+                const updatedIcon = generateLabelBtn.querySelector('svg') || generateLabelBtn.querySelector('i');
+                if(updatedIcon) {
+                    updatedIcon.setAttribute('data-lucide', 'sparkles');
+                    updatedIcon.classList.remove('animate-spin');
+                }
+                generateLabelBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+                
+                // Show result area, hide empty state
+                aiEmptyState.classList.add('hidden');
+                aiResultArea.classList.remove('hidden');
+                aiResultArea.classList.add('flex');
+                
+                lucide.createIcons();
+            }, 1500);
+        });
+    }
+
+    // 6. BULK SCAN LOGIC
+    const openBulkScanBtn = document.getElementById('openBulkScanBtn');
+    const bulkScanModal = document.getElementById('bulkScanModal');
+    const closeBulkScanBtn = document.getElementById('closeBulkScanBtn');
+    const startBulkScanBtn = document.getElementById('startBulkScanBtn');
+    
+    const bulkScanInitial = document.getElementById('bulkScanInitial');
+    const bulkScanLoading = document.getElementById('bulkScanLoading');
+    const bulkScanResults = document.getElementById('bulkScanResults');
+    const scanProgressText = document.getElementById('scanProgressText');
+
+    if(openBulkScanBtn && bulkScanModal) {
+        openBulkScanBtn.addEventListener('click', () => {
+            bulkScanModal.classList.remove('hidden');
+            setTimeout(() => bulkScanModal.classList.remove('opacity-0'), 10);
+            
+            // Reset to initial state
+            bulkScanInitial.classList.remove('hidden');
+            bulkScanLoading.classList.add('hidden');
+            bulkScanResults.classList.add('hidden');
+        });
+
+        closeBulkScanBtn.addEventListener('click', () => {
+            bulkScanModal.classList.add('opacity-0');
+            setTimeout(() => bulkScanModal.classList.add('hidden'), 300);
+        });
+
+        startBulkScanBtn.addEventListener('click', () => {
+            bulkScanInitial.classList.add('hidden');
+            bulkScanLoading.classList.remove('hidden');
+            
+            let count = 0;
+            const interval = setInterval(() => {
+                count += Math.floor(Math.random() * 25) + 10;
+                if(count > 500) count = 500;
+                scanProgressText.innerText = `${count} / 500 məhsul yoxlanıldı`;
+                
+                if(count === 500) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        bulkScanLoading.classList.add('hidden');
+                        bulkScanResults.classList.remove('hidden');
+                    }, 500);
+                }
+            }, 100);
+        });
+    }
+
+    // 7. KANBAN DRAG AND DROP LOGIC
+    const draggables = document.querySelectorAll('[draggable="true"]');
+    const zones = document.querySelectorAll('.kanban-zone');
+
+    draggables.forEach(draggable => {
+        draggable.addEventListener('dragstart', () => {
+            draggable.classList.add('opacity-50');
+            draggable.classList.add('dragging');
+        });
+
+        draggable.addEventListener('dragend', () => {
+            draggable.classList.remove('opacity-50');
+            draggable.classList.remove('dragging');
+        });
+    });
+
+    zones.forEach(zone => {
+        zone.addEventListener('dragover', e => {
+            e.preventDefault(); // Necessary to allow dropping
+            const draggingElement = document.querySelector('.dragging');
+            if(draggingElement) {
+                zone.appendChild(draggingElement);
+            }
+        });
+    });
+
+    // 8. QR CODE GENERATION LOGIC
+    const applyFixAndQRBtn = document.getElementById('applyFixAndQRBtn');
+    const qrResultArea = document.getElementById('qrResultArea');
+
+    if(applyFixAndQRBtn && qrResultArea) {
+        applyFixAndQRBtn.addEventListener('click', () => {
+            const btnIcon = applyFixAndQRBtn.querySelector('svg') || applyFixAndQRBtn.querySelector('i');
+            if(btnIcon) {
+                btnIcon.setAttribute('data-lucide', 'loader-2');
+                btnIcon.classList.add('animate-spin');
+            }
+            applyFixAndQRBtn.classList.add('opacity-75', 'cursor-not-allowed');
+            lucide.createIcons();
+
+            setTimeout(() => {
+                const updatedIcon = applyFixAndQRBtn.querySelector('svg') || applyFixAndQRBtn.querySelector('i');
+                if(updatedIcon) {
+                    updatedIcon.setAttribute('data-lucide', 'check-circle');
+                    updatedIcon.classList.remove('animate-spin');
+                }
+                applyFixAndQRBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+                
+                qrResultArea.classList.remove('hidden');
+                qrResultArea.classList.add('flex');
+                setTimeout(() => {
+                    qrResultArea.classList.remove('scale-95');
+                    qrResultArea.classList.add('scale-100');
+                }, 10);
+                
+                lucide.createIcons();
+                showToast("Uğurlu Tətbiq", "Etiket mətni qanunvericiliyə uyğunlaşdırıldı.");
+            }, 800);
+        });
+    }
+
+    // 9. EXTRA INTERACTIVITY (TOASTS & BUTTONS)
+    const newProducerBtn = document.getElementById('newProducerBtn');
+    const newProducerModal = document.getElementById('newProducerModal');
+    const closeProducerModalBtn = document.getElementById('closeProducerModalBtn');
+    const voenSearchBtn = document.getElementById('voenSearchBtn');
+    const voenInput = document.getElementById('voenInput');
+    const voenResultForm = document.getElementById('voenResultForm');
+    const addProducerSubmitBtn = document.getElementById('addProducerSubmitBtn');
+
+    if(newProducerBtn && newProducerModal) {
+        newProducerBtn.addEventListener('click', () => {
+            newProducerModal.classList.remove('hidden');
+            setTimeout(() => newProducerModal.classList.remove('opacity-0'), 10);
+            
+            // Reset form
+            if(voenInput) voenInput.value = '';
+            if(voenResultForm) voenResultForm.classList.add('hidden');
+        });
+
+        if(closeProducerModalBtn) {
+            closeProducerModalBtn.addEventListener('click', () => {
+                newProducerModal.classList.add('opacity-0');
+                setTimeout(() => newProducerModal.classList.add('hidden'), 300);
+            });
+        }
+
+        if(voenSearchBtn && voenResultForm) {
+            voenSearchBtn.addEventListener('click', () => {
+                const btnIcon = voenSearchBtn.querySelector('svg') || voenSearchBtn.querySelector('i');
+                if(!voenInput.value.trim()) {
+                    voenInput.focus();
+                    return;
                 }
                 
-                if (storyText) {
-                    storyText.innerText = '"Böyük Qafqazın ətəklərində yetişən bu heyvalar, keçmişdən gələn xüsusi reseptlə, mis qazanlarda qaynayıb. İçində nə süni rəngləndirici, nə də dadlandırıcı var - yalnız ana təbiətin saf ləzzəti. Çay süfrənizə fərqlilik qatacaq əsl ev mürəbbəsi."';
+                // Loading state
+                if(btnIcon) {
+                    btnIcon.setAttribute('data-lucide', 'loader-2');
+                    btnIcon.classList.add('animate-spin');
                 }
+                voenSearchBtn.classList.add('opacity-75', 'cursor-not-allowed');
+                lucide.createIcons();
 
-                showToast("Yeni Mətn", "Süni intellekt tərəfindən yeni sloqan və hekayə generasiya edildi.", true);
-            }, 1200); // 1.2s delay for visual effect
+                setTimeout(() => {
+                    // Restore state
+                    const updatedIcon = voenSearchBtn.querySelector('svg') || voenSearchBtn.querySelector('i');
+                    if(updatedIcon) {
+                        updatedIcon.setAttribute('data-lucide', 'search');
+                        updatedIcon.classList.remove('animate-spin');
+                    }
+                    voenSearchBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+                    
+                    // Show results
+                    voenResultForm.classList.remove('hidden');
+                    lucide.createIcons();
+                }, 1000);
+            });
+        }
+
+        if(addProducerSubmitBtn) {
+            addProducerSubmitBtn.addEventListener('click', () => {
+                newProducerModal.classList.add('opacity-0');
+                setTimeout(() => {
+                    newProducerModal.classList.add('hidden');
+                    
+                    // Inject new row into the table
+                    const productsTableBody = document.getElementById('productsTableBody');
+                    const categorySelect = document.getElementById('newCategorySelect');
+                    const categoryValue = categorySelect ? categorySelect.value : 'Yeni Kateqoriya';
+                    
+                    if(productsTableBody) {
+                        const newRow = document.createElement('tr');
+                        newRow.className = 'hover:bg-brand-50 transition cursor-pointer bg-green-50/50 animate-pulse';
+                        newRow.innerHTML = `
+                            <td class="p-4">
+                                <div class="font-bold text-gray-900 border-l-2 border-brand-500 pl-2">Yeni Məhsul (Qeydiyyat)</div>
+                                <div class="text-gray-400 text-xs pl-2.5 mt-0.5">ID: ABD-${Math.floor(Math.random() * 900) + 100}</div>
+                            </td>
+                            <td class="p-4"><div class="flex items-center"><div class="w-6 h-6 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center font-bold text-xs mr-2">A</div> ABAD Təbii Qida...</div></td>
+                            <td class="p-4"><span class="px-2 py-1 bg-brand-50 text-brand-700 border border-brand-200 rounded text-xs font-bold">${categoryValue}</span></td>
+                            <td class="p-4"><span class="flex items-center text-gray-500 font-medium"><i data-lucide="clock" class="w-4 h-4 mr-1"></i> RAG Yoxlanışı Gözlənilir</span></td>
+                            <td class="p-4 text-right"><span class="bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg text-xs font-bold">0% Hazırdır</span></td>
+                        `;
+                        productsTableBody.prepend(newRow);
+                        lucide.createIcons();
+                        
+                        setTimeout(() => {
+                            newRow.classList.remove('animate-pulse', 'bg-green-50/50');
+                        }, 4000);
+                    }
+
+                    showToast("Qeydiyyat Uğurlu", "İstehsalçı ASAN Finans məlumatları əsasında reyestrə əlavə olundu.");
+                }, 300);
+            });
+        }
+    }
+
+    const downloadQrBtn = document.getElementById('downloadQrBtn');
+    if(downloadQrBtn) {
+        downloadQrBtn.addEventListener('click', () => {
+            showToast("Yükləmə Tamamlandı", "QR Kod PNG formatında cihazınıza saxlanıldı.");
+        });
+    }
+
+    const autoFixBtns = document.querySelectorAll('.auto-fix-btn');
+    autoFixBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const button = e.currentTarget;
+            button.classList.remove('bg-gray-100', 'text-gray-800');
+            button.classList.add('bg-green-100', 'text-green-700');
+            button.innerHTML = '<i data-lucide="check" class="w-3 h-3 inline mr-1"></i> Düzəldildi';
+            lucide.createIcons();
+            showToast("Avto-Düzəliş", "Məhsulun xətası uğurla bərpa edildi.");
+        });
+    });
+
+    const bulkFixAllBtn = document.getElementById('bulkFixAllBtn');
+    if(bulkFixAllBtn) {
+        bulkFixAllBtn.addEventListener('click', () => {
+            showToast("Kütləvi Düzəliş", "Bütün 24 məhsulun etiketi yeni qanunvericiliyə uyğunlaşdırıldı.");
+            setTimeout(() => {
+                const bulkScanModal = document.getElementById('bulkScanModal');
+                if(bulkScanModal) {
+                    bulkScanModal.classList.add('opacity-0');
+                    setTimeout(() => bulkScanModal.classList.add('hidden'), 300);
+                }
+            }, 1500);
+        });
+    }
+
+    const approveKanbanBtn = document.getElementById('approveKanbanBtn');
+    if(approveKanbanBtn) {
+        approveKanbanBtn.addEventListener('click', (e) => {
+            const btn = e.currentTarget;
+            btn.classList.remove('bg-purple-100', 'text-purple-700', 'hover:bg-purple-200');
+            btn.classList.add('bg-green-100', 'text-green-700');
+            btn.innerText = 'Təsdiqləndi';
+            showToast("Təsdiq Verildi", "Məhsul rəhbərlik tərəfindən uğurla təsdiqləndi və çapa göndərildi.");
+            
+            // Optionally move it to the done column
+            setTimeout(() => {
+                const card = btn.closest('[draggable="true"]');
+                const doneZone = document.querySelector('.kanban-zone[data-status="done"]');
+                if(card && doneZone) {
+                    doneZone.appendChild(card);
+                }
+            }, 1000);
+        });
+    }
+
+    // 10. DESIGN STUDIO LOGIC
+    const generateDesignBtn = document.getElementById('generateDesignBtn');
+    const designEmptyState = document.getElementById('designEmptyState');
+    const designResultArea = document.getElementById('designResultArea');
+
+    if(generateDesignBtn && designResultArea) {
+        generateDesignBtn.addEventListener('click', () => {
+            const btnIcon = generateDesignBtn.querySelector('svg') || generateDesignBtn.querySelector('i');
+            
+            // Loading state
+            if(btnIcon) {
+                btnIcon.setAttribute('data-lucide', 'loader-2');
+                btnIcon.classList.add('animate-spin');
+            }
+            generateDesignBtn.classList.add('opacity-75', 'cursor-not-allowed');
+            lucide.createIcons();
+
+            setTimeout(() => {
+                // Restore state
+                const updatedIcon = generateDesignBtn.querySelector('svg') || generateDesignBtn.querySelector('i');
+                if(updatedIcon) {
+                    updatedIcon.setAttribute('data-lucide', 'palette');
+                    updatedIcon.classList.remove('animate-spin');
+                }
+                generateDesignBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+                
+                // Show result area, hide empty state
+                designEmptyState.classList.add('hidden');
+                designResultArea.classList.remove('hidden');
+                designResultArea.classList.add('flex');
+                
+                lucide.createIcons();
+                showToast("Dizayn Hazırdır", "3D Qablaşdırma vizualizasiyası və satış hekayəsi yaradıldı.");
+            }, 2000);
+        });
+    }
+
+    const sendToKanbanBtn = document.getElementById('sendToKanbanBtn');
+    if(sendToKanbanBtn) {
+        sendToKanbanBtn.addEventListener('click', () => {
+            showToast("Kanbana Göndərildi", "Məhsul dizaynı 'Rəhbər Təsdiqi' mərhələsinə göndərildi.");
+            setTimeout(() => {
+                const kanbanTabBtn = document.querySelector('.nav-btn[data-target="kanban"]');
+                if(kanbanTabBtn) kanbanTabBtn.click();
+            }, 1500);
+        });
+    }
+
+    const downloadMockupBtn = document.getElementById('downloadMockupBtn');
+    if(downloadMockupBtn) {
+        downloadMockupBtn.addEventListener('click', () => {
+            showToast("Yükləmə Tamamlandı", "Qablaşdırma dizaynı PDF və PNG formatında yadda saxlanıldı.");
+        });
+    }
+
+    const downloadReportBtn = document.getElementById('downloadReportBtn');
+    if(downloadReportBtn) {
+        downloadReportBtn.addEventListener('click', () => {
+            showToast("Hesabat Hazırdır", "İdarə heyəti üçün həftəlik analitik PDF hesabat yüklənildi.");
         });
     }
 });
